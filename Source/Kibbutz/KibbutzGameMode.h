@@ -6,14 +6,13 @@
 #include "KibbutzGameMode.generated.h"
 
 /**
- * 
+ * The game mode.
  */
 UCLASS()
-class KIBBUTZ_API AKibbutzGameMode : public AGameMode
-{
+class KIBBUTZ_API AKibbutzGameMode: public AGameMode {
 	GENERATED_BODY()
-	
-	
-	
-	
+
+public:
+	// Constructor.
+	AKibbutzGameMode();
 };
