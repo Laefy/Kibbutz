@@ -4,3 +4,7 @@
 
 #include "Engine.h"
 
+DECLARE_LOG_CATEGORY_EXTERN(DebugLog, Log, All);
+
+// Collision channel dedicated to element that can be pointed with the mouse cursor.
+#define ECC_Pointer ECC_GameTraceChannel1

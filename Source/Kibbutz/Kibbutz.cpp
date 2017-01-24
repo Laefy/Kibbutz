@@ -2,4 +2,6 @@
 
 #include "Kibbutz.h"
 
-IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, Kibbutz, "Kibbutz" );
+IMPLEMENT_PRIMARY_GAME_MODULE(FDefaultGameModuleImpl, Kibbutz, "Kibbutz");
+
+DEFINE_LOG_CATEGORY(DebugLog);
