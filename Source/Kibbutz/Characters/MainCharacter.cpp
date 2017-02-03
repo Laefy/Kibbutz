@@ -2,8 +2,8 @@
 
 #include "Kibbutz.h"
 #include "Characters/MainCharacter.h"
+#include "Inventory/Item.h"
 #include "Kismet/KismetMathLibrary.h"
-
 
 AMainCharacter::AMainCharacter() {
 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
@@ -20,6 +20,17 @@ AMainCharacter::AMainCharacter() {
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	Camera->SetupAttachment(SpringArm, USpringArmComponent::SocketName);
 
+	InteractionArea = CreateDefaultSubobject<USphereComponent>(TEXT("InteractionArea"));
+	InteractionArea->SetSphereRadius(200.f);
+	InteractionArea->bGenerateOverlapEvents = true;
+	InteractionArea->SetupAttachment(RootComponent);
+
+	Target = nullptr;
+
+	GetCapsuleComponent()->SetCapsuleHalfHeight(105.f);
+	GetMesh()->SetRelativeLocation(FVector(0.f, 0.f, -88.f));
+	GetMesh()->SetRelativeRotation(FRotator(0.f, -90.f, 0.f));
+
 	bUseControllerRotationPitch = false;
 	bUseControllerRotationYaw = false;
 	bUseControllerRotationRoll = false;
@@ -27,6 +38,10 @@ AMainCharacter::AMainCharacter() {
 
 void AMainCharacter::BeginPlay() {
 	Super::BeginPlay();
+
+	// Delegates cannot be initialized in constructor.
+	InteractionArea->OnComponentBeginOverlap.AddDynamic(this, &AMainCharacter::OnEnterInteractionArea);
+	InteractionArea->OnComponentEndOverlap.AddDynamic(this, &AMainCharacter::OnLeaveInteractionArea);
 }
 
 void AMainCharacter::Tick(float DeltaTime) {
@@ -46,5 +61,28 @@ void AMainCharacter::MoveTo(FVector const& Destination) {
 
 	// Reajust the spring arm position.
 	SpringArm->SetWorldRotation(FRotator(-30.f, 0.f, 0.f));
+}
+
+void AMainCharacter::OnEnterInteractionArea(UPrimitiveComponent* Component, AActor* Other, UPrimitiveComponent* OtherComponent, int32, bool, const FHitResult&) {
+	AItem* Item = Cast<AItem>(Other);
+	if (Item != nullptr) {
+		Target = Item;
+		UE_LOG(DebugLog, Warning, TEXT("Item in"));
+	}
+}
+
+void AMainCharacter::OnLeaveInteractionArea(UPrimitiveComponent* Component, AActor* Other, UPrimitiveComponent* OtherComponent, int32) {
+	AItem* Item = Cast<AItem>(Other);
+	if (Item != nullptr) {
+		Target = nullptr;
+		UE_LOG(DebugLog, Warning, TEXT("Item out"));
+	}
+}
+
+void AMainCharacter::OnInteraction() {
+	if (Target != nullptr) {
+		Target->Destroy();
+		Target = nullptr;
+	}
 }
 
