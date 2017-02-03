@@ -25,10 +25,26 @@ public:
 	// Move the character toward the given destination.
 	void MoveTo(FVector const& destination);
 
-private:
-	UPROPERTY(EditAnywhere)
-	UCameraComponent* Camera;
+	// Triggered when an object enters the interaction area.
+	UFUNCTION()
+	void OnEnterInteractionArea(UPrimitiveComponent* Component, AActor* Other, UPrimitiveComponent* OtherComponent, int32 ComponentIndex, bool bSweep, const FHitResult& SweepResult);
 
-	UPROPERTY(EditAnywhere)
-	USpringArmComponent* SpringArm;
+	// Triggered when an object leaves the interaction area.
+	UFUNCTION()
+	void OnLeaveInteractionArea(UPrimitiveComponent* Component, AActor* Other, UPrimitiveComponent* OtherComponent, int32 ComponentIndex);
+
+	// Launch interaction.
+	void OnInteraction();
+
+private:
+	UPROPERTY(Category = Camera, EditAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	class UCameraComponent* Camera;
+
+	UPROPERTY(Category = Camera, EditAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	class USpringArmComponent* SpringArm;
+
+	UPROPERTY(Category = Interaction, EditAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	class USphereComponent* InteractionArea;
+
+	class AItem* Target;
 };
