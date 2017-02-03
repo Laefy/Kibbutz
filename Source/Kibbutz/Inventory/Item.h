@@ -22,6 +22,9 @@ public:
 	// Update the item when the model is changed.
 	virtual void PostEditChangeProperty(struct FPropertyChangedEvent& Event) override;
 
+	// Call update after loading an item.
+	virtual void PostLoad() override;
+
 	// Notify that the given model has been updated.
 	void NotifyModelUpdate(class AItemModel* ItemModel);
 

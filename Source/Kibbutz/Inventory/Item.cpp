@@ -26,6 +26,11 @@ void AItem::Tick(float DeltaTime) {
 	Super::Tick(DeltaTime);
 }
 
+void AItem::PostLoad() {
+	Super::PostLoad();
+	Update();
+}
+
 void AItem::PostEditChangeProperty(struct FPropertyChangedEvent& Event) {
 	FName PropertyName = (Event.Property != nullptr) ? Event.Property->GetFName() : NAME_None;
 	if (PropertyName == GET_MEMBER_NAME_CHECKED(AItem, Model)) {

@@ -16,6 +16,9 @@ public:
 	// Sets default values for this character's properties
 	AMainCharacter();
 
+	// Set up the overlap events.
+	virtual void PostInitializeComponents() override;
+
 	// Override AActor::BeginPlay.
 	virtual void BeginPlay() override;
 
@@ -44,7 +47,7 @@ private:
 	class USpringArmComponent* SpringArm;
 
 	UPROPERTY(Category = Interaction, EditAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
-	class USphereComponent* InteractionArea;
+	class UCapsuleComponent* InteractionArea;
 
 	class AItem* Target;
 };
