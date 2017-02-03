@@ -20,8 +20,11 @@ AMainCharacter::AMainCharacter() {
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	Camera->SetupAttachment(SpringArm, USpringArmComponent::SocketName);
 
-	InteractionArea = CreateDefaultSubobject<USphereComponent>(TEXT("InteractionArea"));
-	InteractionArea->SetSphereRadius(200.f);
+	InteractionArea = CreateDefaultSubobject<UCapsuleComponent>(TEXT("InteractionArea"));
+	InteractionArea->SetCapsuleHalfHeight(140.f);
+	InteractionArea->SetCapsuleRadius(110.f);
+	InteractionArea->SetRelativeLocation(FVector(120.f, 0.f, -40.f));
+	InteractionArea->SetRelativeRotation(FRotator(90.f, 0.f, 0.f));
 	InteractionArea->bGenerateOverlapEvents = true;
 	InteractionArea->SetupAttachment(RootComponent);
 
@@ -38,6 +41,10 @@ AMainCharacter::AMainCharacter() {
 
 void AMainCharacter::BeginPlay() {
 	Super::BeginPlay();
+}
+
+void AMainCharacter::PostInitializeComponents() {
+	Super::PostInitializeComponents();
 
 	// Delegates cannot be initialized in constructor.
 	InteractionArea->OnComponentBeginOverlap.AddDynamic(this, &AMainCharacter::OnEnterInteractionArea);
