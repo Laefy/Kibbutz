@@ -1,0 +1,27 @@
+Name,Day,Variable,Question,Answer1,Answer2,Answer3,A1Goto,A2Goto,A3Goto
+1,1,,"Oh, hi. You must be Oscar. I'm Lena. Nice to meet you. The mayor told us that you were moving in Kibbutz. Life is a bit rude here, but villagers are the kindest i've ever seen. I'm sure you will fastly set.","What are you doing here ?","Nice to meet you.",,2,-1,-1
+2,1,,"I'm herbalist. I work with several plants to help people to feel better, or to cure from serious diseases. I'm like the doctor of Kibbutz. Just drop by if you need me.","Nice to meet you.",,,-1,-1,-1
+3,1,,"You should regularly talk with all of the habitants. They often have things to do, and they will be pleased if you can help them.",,,,-1,-1,-1
+4,2,,"Hi Oscar. How are you today ?","Fine !","Couldn't sleep very well this night…",,6,-1,-1
+5,2,secretBackdoorFoundNightOne,"Hi Oscar. How are you today ?","Fine !","Couldn't sleep very well this night…","I found a very bizarre secret entrance",6,-1,-1
+6,2,,"Glad to hear it. Oh, don't leave ! I think i need your help for something.","What is it ?","Nop, not interested, sorry.",,7,8,-1
+7,2,,"I need 4 pieces of fish for my preparation. But i don't know how to fish. Could you do it for me ?","Sure !","Don't know how to fish, sorry",,9,8,-1
+8,2,,"Oh. Well. I'm sorry if i have disturbed you.",,,,-1,-1,-1
+9,2,,"That's wonderful. Don't forget, i need 4 pieces. Good luck with your work !",,,,-1,-1,-1
+10,2,,"Oh, you must be talking about the old mine. It's a desused place where we used to stock some of our furnitures. But it appears to be a bit dangerous, so we closed it. Nothing really exciting, in fact !","Thanks !",,,11,-1,-1
+11,2,,"Not a problem. Oh, don't leave ! I think i need your help for something.","What is it ?","Nop, not interested, sorry.",,7,8,-1
+12,2,,"It happens sometimes. You should take some plants. Linden is known to promote sleeping. I don't have any in stock, but i can call you as early as i get some.","That would be nice, thanks !",,,11,-1,-1
+13,2,fishMissionDenied,"Still there ? Sorry but i can really talk to you right now. I have to learn how to fish.",,,,-1,-1,-1
+14,2,fishMissionAccepted,"How is your mission going ? I'm sure it will be all right. Just be patient, sometimes it takes time to just catch one little fish.",,,,-1,-1,-1
+15,2,fishMissionCompleted,"Well, a greatful success, as I can see ? Well played Oscar ! Here's is some money for you. It can be useful if you ever need to buy something at the market.","Thanks a lot !",,,-1,-1,-1
+16,2,afterFishMission,"These fish will be helpful for what i'm doing. Thanks again Oscar. It's very nice to have you nearby !",,,,-1,-1,-1
+17,3,,"Hi Oscar. You're looking good today.","Thanks, you too !","Are you kidding ? I spent the worst night ever.",,20,21,-1
+18,3,redMark,"Hi Oscar. You're looking good today.","Thanks, you too !","Are you kidding ? I spent the worst night ever.","What is this red mark's thing ?",20,21,22
+19,3,,"Thanks. Have a good day.",,,,-1,-1,-1
+20,3,,"Oh, i'm sorry... And i still have not gotten any plants to help you. Try to do a bit of exercize during the day, maybe ? Maybe you're not tired enough when night comes...",,,,-1,-1,-1
+21,3,,"Oh, you've been marked. It already happened to someone else in the village, but don't worry, it don't mean anything. We think it's just a joke from a child of the village.",,,,-1,-1,-1
+22,3,herboristDay3_2,"I'm sorry, i can't help you right now... I'm pretty busy. I have to prepare some medecine for the mayor. Maybe you can come back later ?",,,,-1,-1,-1
+23,4,,"Hi Oscar. Sorry, i'm not in a very good mood today, i slept pretty bad. Can you come back later ? Thanks.","Oh ? Well, as you want",,,-1,-1,-1
+24,4,foundCultActivites,"Hi Oscar. Sorry, i'm not in a very good mood today, i slept pretty bad. Can you come back later ? Thanks.","Huh, sorry but i saw something very strange this night","Oh ? Well, as you want",,-1,-1,-1
+25,4,,"...What ? You're serious ? It's, hum. I don't know what is it, i'm sorry. Please, just leave me, i'm really tired, I juste want to be alone a bit, thanks.","Well…",,,-1,-1,-1
+26,4,herboristTalkedAboutCult,"Damn, can't you leave ? I don't know what you don't understand in ""please leave me"". Gosh.",,,,-1,-1,-1
