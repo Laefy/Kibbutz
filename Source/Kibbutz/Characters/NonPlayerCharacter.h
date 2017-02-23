@@ -22,7 +22,7 @@ public:
 	// Called every frame
 	virtual void Tick( float DeltaSeconds ) override;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Default)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Dialogue)
 	TArray<FNPCStatement> NPCStatements;
 
 

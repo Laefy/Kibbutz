@@ -42,12 +42,20 @@ void ANonPlayerCharacter::LoadDialogue()
 		FRawCsvData* data = (FRawCsvData*)(it.Value);
 
 		TArray<FPlayerResponse> responses;
-		FPlayerResponse answer1(data->Answer1, data->A1Goto);
-		responses.Add(answer1);
-		FPlayerResponse answer2(data->Answer2, data->A2Goto);
-		responses.Add(answer2);
-		FPlayerResponse answer3(data->Answer3, data->A3Goto);
-		responses.Add(answer3);
+		if (data->Answer1.ToString() != "") {
+			FPlayerResponse answer1(data->Answer1, data->A1Goto);
+			responses.Add(answer1);
+		}
+
+		if (data->Answer2.ToString() != "") {
+			FPlayerResponse answer2(data->Answer2, data->A2Goto);
+			responses.Add(answer2);
+		}
+
+		if (data->Answer3.ToString() != "") {
+			FPlayerResponse answer3(data->Answer3, data->A3Goto);
+			responses.Add(answer3);
+		}
 
 		FNPCStatement temp(data->Question, responses);
 		NPCStatements.Add(temp);
