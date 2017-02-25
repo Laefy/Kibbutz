@@ -25,6 +25,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Dialogue)
 	TArray<FNPCStatement> NPCStatements;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Meta=(ExposeOnSpawn = true))
+	FString Name;
 
 private:
 	void LoadDialogue();
