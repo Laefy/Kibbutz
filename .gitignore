@@ -64,7 +64,12 @@ DerivedDataCache/*
 *.swo
 .ctrlp_cache/
 
+# Built data for maps
+*_BuiltData.uasset
 
+# Visual Studio 2015 database file
+*.VC.db
+*.VC.opendb
 
 .vs/*
 Binaries/*
