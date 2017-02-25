@@ -29,7 +29,7 @@ void ANonPlayerCharacter::Tick( float DeltaTime )
 void ANonPlayerCharacter::LoadDialogue()
 {
 	// TODO Days
-	// TODO Answer already seen
+	// TODO Variables
 
 	// Build CSV path using character name e.g /Game/NPCDialogue/csv/Lena.Lena
 	FString characterName = ANonPlayerCharacter::GetName();
