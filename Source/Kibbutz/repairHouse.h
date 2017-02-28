@@ -1,13 +1,18 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
+#include "Quest.h"
+#include <string>
 
 /**
  * 
  */
-class KIBBUTZ_API repairHouse
+class KIBBUTZ_API RepairHouse : public Quest
 {
 public:
-	repairHouse();
-	~repairHouse();
+	RepairHouse();
+	~RepairHouse();
+
+private:	
+	void signal(int step, string name);
 };

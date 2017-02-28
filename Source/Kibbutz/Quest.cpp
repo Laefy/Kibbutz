@@ -11,7 +11,6 @@ Quest::~Quest()
 {
 }
 
-bool Quest::signal(int step, string name)
+void Quest::signal(int step, string name)
 {
-	return false;
 }

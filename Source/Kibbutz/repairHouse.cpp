@@ -1,13 +1,16 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "Kibbutz.h"
-#include "repairHouse.h"
-#include <string>
+#include "RepairHouse.h"
 
-repairHouse::repairHouse()
+RepairHouse::RepairHouse()
 {
 }
 
-repairHouse::~repairHouse()
+RepairHouse::~RepairHouse()
+{
+}
+
+void RepairHouse::signal(int step, string name)
 {
 }
