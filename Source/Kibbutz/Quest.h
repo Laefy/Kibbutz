@@ -20,5 +20,5 @@ private:
 public:
 	Quest();
 	~Quest();
-	virtual void signal(int step, string name);
+	virtual void signal(EventType evt, string name);
 };

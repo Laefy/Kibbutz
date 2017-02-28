@@ -16,5 +16,4 @@ class KIBBUTZ_API AKibbutzGameMode: public AGameMode {
 public:
 	// Constructor.
 	AKibbutzGameMode();
-
 };

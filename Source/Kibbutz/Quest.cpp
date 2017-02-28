@@ -11,6 +11,6 @@ Quest::~Quest()
 {
 }
 
-void Quest::signal(int step, string name)
+void Quest::signal(EventType evt, string name)
 {
 }

@@ -13,6 +13,4 @@ public:
 	RepairHouse();
 	~RepairHouse();
 
-private:	
-	void signal(int step, string name);
 };

@@ -14,5 +14,7 @@ private:
 public:
 	QuestBook();
 	~QuestBook(); 
-	void signal(int step, string name);
+
+	void signal(EventType evt, string name);
+	void initQuest(QuestTitle questName);
 };

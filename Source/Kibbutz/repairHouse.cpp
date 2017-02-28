@@ -10,7 +10,3 @@ RepairHouse::RepairHouse()
 RepairHouse::~RepairHouse()
 {
 }
-
-void RepairHouse::signal(int step, string name)
-{
-}

@@ -12,6 +12,17 @@ QuestBook::~QuestBook()
 {
 }
 
-void QuestBook::signal(int step, string name)
+void QuestBook::signal(EventType evt, string name)
 {
+}
+
+void QuestBook::initQuest(QuestTitle questName)
+{
+	switch (questName)
+	{
+		case RepairHouse:
+			// Do Something
+			break;
+
+	}
 }
