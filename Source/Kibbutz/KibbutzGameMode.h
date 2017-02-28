@@ -5,6 +5,7 @@
 #include "GameFramework/GameMode.h"
 #include "KibbutzGameMode.generated.h"
 
+
 /**
  * The game mode.
  */
@@ -15,4 +16,5 @@ class KIBBUTZ_API AKibbutzGameMode: public AGameMode {
 public:
 	// Constructor.
 	AKibbutzGameMode();
+
 };

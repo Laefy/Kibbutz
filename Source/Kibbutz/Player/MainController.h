@@ -34,7 +34,7 @@ public:
 
 	// Override APlayerController::UnPossess.
 	virtual void UnPossess() override;
-
+	
 protected:
 	// Override APlayerController::SetupInputComponent.
 	virtual void SetupInputComponent() override;
