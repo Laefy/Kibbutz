@@ -34,13 +34,6 @@ void ANonPlayerCharacter::AllocateDialogueToNPC()
 	FString characterName = ANonPlayerCharacter::GetName();
 
 	AKibbutzGameMode* const KibbutzGameMode = GetWorld()->GetAuthGameMode<AKibbutzGameMode>();
-
-	for (auto& Elem : KibbutzGameMode->NPCStatementsMap)
-	{
-		// Find dialgues that correspond to this character
-		if (Elem.Key.Compare(characterName) == 0) {
-			NPCStatements = Elem.Value;
-		}
-	}
+	NPCStatements = *KibbutzGameMode->NPCStatementsMap.Find(characterName);
 }
 
