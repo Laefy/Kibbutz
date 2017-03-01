@@ -27,6 +27,7 @@ public:
 
 private:
 	void AllocateDialogueToNPC();
+	FString convertIDNametoName(FString IDName);
 	
 	UPROPERTY(EditAnywhere)
 	UCameraComponent* Camera;

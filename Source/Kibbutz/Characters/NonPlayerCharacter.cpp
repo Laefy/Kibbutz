@@ -31,9 +31,29 @@ void ANonPlayerCharacter::AllocateDialogueToNPC()
 {
 	// TODO Days
 	// TODO Variables
-	FString characterName = ANonPlayerCharacter::GetName();
-
+	FString characterName = convertIDNametoName(ANonPlayerCharacter::GetName());
 	AKibbutzGameMode* const KibbutzGameMode = GetWorld()->GetAuthGameMode<AKibbutzGameMode>();
-	NPCStatements = *KibbutzGameMode->NPCStatementsMap.Find(characterName);
+	
+	if (KibbutzGameMode->NPCStatementsMap.Find(characterName) != nullptr) {
+		NPCStatements = *KibbutzGameMode->NPCStatementsMap.Find(characterName);
+	}
+
+	
 }
 
+/**
+*	Convert Unreal ID Name to the real name of the character, e.g Chelsea_50 --> Chelsea
+**/
+FString ANonPlayerCharacter::convertIDNametoName(FString IDName)
+{
+	int32 underscoreIndex;
+	FString name = IDName;
+	name.FindChar(*("_"), underscoreIndex);
+
+	if (underscoreIndex > 0) {
+		int32 nbrOfCharToRemove = name.Len() - underscoreIndex;
+		name = name.LeftChop(nbrOfCharToRemove);
+	}
+
+	return name;
+}
