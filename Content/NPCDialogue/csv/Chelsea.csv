@@ -1,0 +1,32 @@
+Id,Day,Variable,"
+Question",Answer1,Answer2,Answer3,A1Goto,A2Goto,A3Goto
+1,1,,Oh ? Who are you ? I I never saw you !,"Oscar, nice to meet you !",I WILL NEVER TELL MY NAME,,2,3,0
+2,1,,"Me too, darling ! You seem to be a good guy. Be nice with Kibbutz's habitants. You'll see, your patience will be rewarded !",,,,0,0,0
+3,1,,"Ok, good start. No, clearly, you know how to introduce yourself. You're Oscar, right ? The mayor told us that you were moving in our town, hopefully. Well, i hope you will be kinder to the others of the village",,,,0,0,0
+4,1,bakerDay1_2,"Sorry darling, but i have a bit of work to do right now. You should see the mayor, i'm sure he has some tasks to give you. If not, you can also just stroll in the hamlet, or go to sleep. Do whatever you want to do !",,,,0,0,0
+5,2,,"Oscar ! I'm sorry but i really need you, and i can't find the mayor. My younger child is lost ! I can't find him ! I'm sure he gone in the forest, he loves to play there, despite my warnings.", It's a job for me !,Whydon't you go by yourself ?,Did you think i care about your child ? Duh.,6,7,8
+6,2,,You're wonderful. Be quick please. I'm really scared...,As fast a I can !,,,0,0,0
+7,2,,"Well, hum. The forest is a bit dangerous. Because of all the wild animals, like, the, hum. Boars. Listen, i'm just a bit scared, i'm not a young strong man like you !",I understand. Let me save your child !,,,6,0,0
+8,2,,"It's impossible to be so insensitive. It's a joke, right ? Whatever, I take it like one and i consider you accept the mission because you would never let a child alone in a forest. Be quick please, i'm scared...",Duh. *grumble*,,,0,0,0
+9,2,findChildQuestAccepted,"Please, be quick ! Who knows if they still alive ? No, i'm not overreacting, stop it !",,,,0,0,0
+10,2,findChildQuestRealized,"Oh, my little boy ! Thanks Oscar, you're so brave. Geoffrey, swear me to never go back in this stupid forest ! Thanks again, here's is for you. Buy whatever you want. You deserved it !",Thanks !,,,0,0,0
+11,2,findChildQuestEnd,"Thanks Oscar. Ask me whatever you want, i'm sure i can help you !",I heard some strange noises this night.,Nothing particular to ask ! See ya !,,13,0,0
+12,2,secretBackdoorFoundNightOne,"Thanks Oscar. Ask me whatever you want, i'm sure i can help you !",I heard some strange noises this night.,I found a very bizarre secret entrance,Nothing particular to ask !,13,14,0
+13,2,,"Like what ? If it was animal's noises, it's normal. We are surrounded by a lot of living things in Kibbutz. Don't worry, they aren't dangerous ! Except for a few of them... Just stay far from the forest and nothing will happen to you, trust me.",,,,0,0,0
+14,2,,"The abandonned cave ? Geoffrey and Dimitri used to play there. There is nothing particular with it, it juste an old place that has been closed. That being said, you should avoid it, some people get in in the past and never came back. We think that they have been trapped inside, probably because of a landslide.",,,,0,0,0
+15,3,,Hi Oscar. How are you doing today ?,I'm fine. And you ?,,,0,0,0
+16,3,redMark,Hi Oscar. How are you doing today ?,I'm fine. And you ?,What is this red mark ?,,0,0,0
+17,3,,"I'm pretty good, thank you. I wish i could give you some fresh bread, but i already sold everything. Sorry Oscar ! You should come back later, or maybe tomorrow.",,,,0,0,0
+18,3,,"The red mark ! Well, most of Kibbutz's habitants think it's a joke from my children. But i never saw them doing such a thing. ",So ? What is it ?,So ? Who did it ?,,0,0,0
+19,3,,"I... I don't know. You should ask to someone else, i don't know anything about this. Sorry. ",I don't trust you...,"Ok, then. Goodbye !",,0,0,0
+20,3,,"How could I know ? Well, in fact, I suspect the hermit. You know, this weird guy who lives outside the village. We don't know anything about him, and he never talk to us. I'm sure is hiding something. You should definitely investigate at his place !",Thanks for the tip !,I don't trust you...,,21,0,0
+21,3,,You're welcome Oscar. Don't hesitate to come here again.,,,,0,0,0
+22,3,,"Damn, if you don't trust me, then leave ! I have better to do than to hear your stupid complaints.",,,,0,0,0
+23,3,bakerDay2_normal,Hi Oscar. I'm sorry but i have a bit of work today. Come back later if you can !,,,,0,0,0
+24,3,bakerDay2_angry,"You're still there ? Please, just leave, you're so annoying today ! Hope you will be less unbearable today.",,,,0,0,0
+25,4,,Hello Oscar. i'm sorry but i have a huge order today. Could you come back later ? It would be nice. Thank you.,As you want...,,,0,0,0
+26,,foundCultActivites,Hello Oscar. i'm sorry but i have a huge order today. Could you come back later ? It would be nice. Thank you.,I need to talk to you about this night.,As you want...,,27,0,0
+27,,,"A cult ? Shit... No, i mean. What are you talkng about ? There's nothing such a cult here, don't be ridiculous.",I saw it...,"You're right, it was probably a dream.",,0,0,0
+28,,,"I'm sure. Listen, take a moment for you, stay home and watch TV or whatever. If you wan't, we can talk about this ""cult"" tomorrow. Is it ok for you ? Now, leave me please, as I said, i have a huge amount of work today !
+","Ok, thanks
+",,,0,0,0
