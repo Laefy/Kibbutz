@@ -12,12 +12,16 @@ UCLASS()
 class KIBBUTZ_API AKibbutzLevelScriptActor : public ALevelScriptActor
 {
 	GENERATED_BODY()
-	
-protected:
+
+public:
+	virtual void BeginPlay() override;
+	virtual void Tick(float DeltaSeconds) override;
 
 	static const float SUN_SPEED;
-	//Tick
-	virtual void Tick(float DeltaSeconds) override;
 	
+private:
+	ADirectionalLight *Sun = nullptr;
+	AActor* SkySphere = nullptr;
+	FRotator sunRotation;
 	
 };
