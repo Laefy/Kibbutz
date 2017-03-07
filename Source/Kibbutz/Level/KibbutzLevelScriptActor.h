@@ -15,6 +15,7 @@ class KIBBUTZ_API AKibbutzLevelScriptActor : public ALevelScriptActor
 	
 protected:
 
+	static const float SUN_SPEED;
 	//Tick
 	virtual void Tick(float DeltaSeconds) override;
 	
