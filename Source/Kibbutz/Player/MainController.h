@@ -35,6 +35,9 @@ public:
 	// Override APlayerController::UnPossess.
 	virtual void UnPossess() override;
 
+	// Launch the active interaction.
+	void Interact();
+
 protected:
 	// Override APlayerController::SetupInputComponent.
 	virtual void SetupInputComponent() override;
