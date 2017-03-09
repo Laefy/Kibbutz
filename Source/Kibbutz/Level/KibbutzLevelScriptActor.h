@@ -2,6 +2,7 @@
 
 #pragma once
 
+#include "TimeManager.h"
 #include "Engine/LevelScriptActor.h"
 #include "KibbutzLevelScriptActor.generated.h"
 
@@ -17,11 +18,13 @@ public:
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaSeconds) override;
 
-	static const float SUN_SPEED;
+	UFUNCTION(BlueprintImplementableEvent)
+	void BecomeDay();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void BecomeNight();
 	
 private:
-	ADirectionalLight *Sun = nullptr;
-	AActor* SkySphere = nullptr;
-	FRotator sunRotation;
+	TimeManager* DayNightManager;
 	
 };

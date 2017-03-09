@@ -3,58 +3,30 @@
 #include "Kibbutz.h"
 #include "KibbutzLevelScriptActor.h"
 
-const float AKibbutzLevelScriptActor::SUN_SPEED = 10;
 
 void AKibbutzLevelScriptActor::BeginPlay()
 {
 	Super::BeginPlay();
 
-	for (TActorIterator<AActor> ActorItr(GetWorld()); ActorItr; ++ActorItr)
-	{
-		if ((*ActorItr)->GetName().Equals("StaticMesh_SkySphere_2"))
-		{
-			this->SkySphere = *ActorItr;
-
-			// quits the loop if both actors are found
-			if (this->Sun != nullptr)
-			{
-				break;
-			}
-		}
-
-		if ((*ActorItr)->GetName().Equals("DirectionalLightStationary_0"))
-		{
-			this->Sun = (ADirectionalLight*)(*ActorItr);
-
-			// quits the loop if both actors are found
-			if (this->SkySphere != nullptr)
-			{
-				break;
-			}
-		}
-	}
+	this->DayNightManager = new TimeManager(GetWorld());
 }
 
 void AKibbutzLevelScriptActor::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);
+
+	this->DayNightManager->RotateSun(DeltaSeconds);
 	
-	this->sunRotation.Pitch = SUN_SPEED * DeltaSeconds;
-	this->sunRotation.Roll = 0.0f;
-	this->sunRotation.Yaw = 0.0f;
-	this->Sun->AddActorLocalRotation(this->sunRotation);
+	if (this->DayNightManager->isPreviousFrameNight != this->DayNightManager->isNight) {
+		this->DayNightManager->isPreviousFrameNight = this->DayNightManager->isNight;
 
-	FOutputDeviceNull ar;
-	this->SkySphere->CallFunctionByNameWithArguments(TEXT("UpdateSunDirection"), ar, NULL, true);
+		if (this->DayNightManager->isNight) {
+			this->BecomeNight();
+		}
+		else {
+			this->BecomeDay();
+		}
 
-	float sunAngle = this->Sun->GetActorRotation().Clamp().Pitch;
-	if (sunAngle > 0 && sunAngle < 180) {
-		UE_LOG(LogTemp, Warning, TEXT("NIGHT"));
 	}
-	else {
-		UE_LOG(LogTemp, Warning, TEXT("DAY"));
-	}
-
-
 }
 
