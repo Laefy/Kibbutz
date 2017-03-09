@@ -1,20 +1,28 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #include "Kibbutz.h"
 #include "KibbutzLevelScriptActor.h"
-
 
 void AKibbutzLevelScriptActor::BeginPlay()
 {
 	Super::BeginPlay();
 
 	this->DayNightManager = new TimeManager(GetWorld());
+
+	if (this->wTime) {
+		this->TimeWidget = CreateWidget<UUserWidget>(GetWorld(), this->wTime);
+		if (this->TimeWidget)
+		{
+			this->TimeWidget->AddToViewport();
+		}
+
+	}
 }
 
 void AKibbutzLevelScriptActor::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);
-
+	UTextBlock* w = (UTextBlock*)this->TimeWidget->GetWidgetFromName("TimeTextBlock");
+	w->SetText(FText::FromString(*this->DayNightManager->GetTime()));
+	
 	this->DayNightManager->RotateSun(DeltaSeconds);
 	
 	if (this->DayNightManager->isPreviousFrameNight != this->DayNightManager->isNight) {
@@ -26,7 +34,7 @@ void AKibbutzLevelScriptActor::Tick(float DeltaSeconds)
 		else {
 			this->BecomeDay();
 		}
-
+		                  
 	}
 }
 
