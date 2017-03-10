@@ -3,7 +3,7 @@
 #include "Kibbutz.h"
 #include "TimeManager.h"
 
-const float TimeManager::SUN_SPEED = 10;
+const float TimeManager::SUN_SPEED = 0.09;
 const float TimeManager::DAY_DURATION_SECONDS = 90;
 
 TimeManager::TimeManager()
@@ -65,7 +65,7 @@ FString TimeManager::GetTime()
 	// Real time 90s = 60min In game
 	// Real time 1s = 60/90min In game
 	float realtimeSeconds = UGameplayStatics::GetRealTimeSeconds(WorldRef);
-	inGameMinutes = floor(realtimeSeconds*(60 / DAY_DURATION_SECONDS)) - (60 * inGameHours);
+	inGameMinutes = floor(realtimeSeconds*(60 / DAY_DURATION_SECONDS)) - (60 * (inGameHours-8) ); // Minus 8 because day starts at 8
 	if (inGameMinutes > 59) {
 			inGameMinutes = 0;
 			inGameHours += 1;

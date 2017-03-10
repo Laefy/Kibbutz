@@ -20,7 +20,7 @@ public:
 	bool isNight = false;
 	bool isPreviousFrameNight = false;
 	int inGameMinutes = 0;
-	int inGameHours = 0;
+	int inGameHours = 8;
 
 private:
 	UWorld* WorldRef;
