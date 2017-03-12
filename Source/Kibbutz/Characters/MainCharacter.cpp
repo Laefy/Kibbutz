@@ -16,6 +16,7 @@ AMainCharacter::AMainCharacter() {
 	SpringArm->bEnableCameraLag = true;
 	SpringArm->CameraLagSpeed = 1.3f;
 	SpringArm->bUsePawnControlRotation = false;
+	SpringArm->bDoCollisionTest = false;
 
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	Camera->SetupAttachment(SpringArm, USpringArmComponent::SocketName);
