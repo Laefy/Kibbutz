@@ -4,7 +4,7 @@
 #include "TimeManager.h"
 
 const float TimeManager::SUN_SPEED = 0.09;
-const float TimeManager::DAY_DURATION_SECONDS = 90;
+const float TimeManager::DAY_DURATION_SECONDS = 1;
 
 TimeManager::TimeManager()
 {
@@ -65,24 +65,30 @@ FString TimeManager::GetTime()
 	// Real time 90s = 60min In game
 	// Real time 1s = 60/90min In game
 	float realtimeSeconds = UGameplayStatics::GetRealTimeSeconds(WorldRef);
-	inGameMinutes = floor(realtimeSeconds*(60 / DAY_DURATION_SECONDS)) - (60 * (inGameHours-8) ); // Minus 8 because day starts at 8
+	int inGameHoursTotal = inGameHours + 24 * (inGameDays - 1) - 8; // Minus 8 because day 1 starts at 8
+	inGameMinutes = floor(realtimeSeconds*(60 / DAY_DURATION_SECONDS)) - (60 * inGameHoursTotal );
 	if (inGameMinutes > 59) {
 			inGameMinutes = 0;
 			inGameHours += 1;
 	}
+	if (inGameHours > 23) {
+		inGameHours = 0;
+		inGameDays += 1;
+	}
 	// TODO Add days 
-	return FormatHourToString(inGameHours, inGameMinutes);
+	return FormatDateToString(inGameDays, inGameHours, inGameMinutes);
 }
 
 
-FString TimeManager::FormatHourToString(int hours, int minutes) {
+FString TimeManager::FormatDateToString(int days, int hours, int minutes) {
 	// Ugly af, sorry
-	FString result;
+	FString result = "Day " + FString::FromInt(days) + " - ";
+
 	if (hours < 10) {
-		result = "0" + FString::FromInt(hours);
+		result += "0" + FString::FromInt(hours);
 	}
 	else {
-		result = FString::FromInt(hours);
+		result += FString::FromInt(hours);
 	}
 	if (minutes < 10) {
 		result += " : 0" + FString::FromInt(minutes);

@@ -13,7 +13,7 @@ public:
 
 	void RotateSun(float DeltaSeconds);
 	FString GetTime();
-	FString FormatHourToString(int hours, int minutes);
+	FString FormatDateToString(int days, int hours, int minutes);
 
 	static const float SUN_SPEED;
 	static const float DAY_DURATION_SECONDS;
@@ -21,6 +21,7 @@ public:
 	bool isPreviousFrameNight = false;
 	int inGameMinutes = 0;
 	int inGameHours = 8;
+	int inGameDays = 1;
 
 private:
 	UWorld* WorldRef;
