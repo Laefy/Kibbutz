@@ -17,9 +17,7 @@ void AMainController::Tick(float DeltaSeconds) {
 	if (bMovingTo) {
 		FHitResult hit;
 		if (GetHitResultUnderCursorByChannel(UEngineTypes::ConvertToTraceType(ECC_Pointer), false, hit)) {
-			UE_LOG(DebugLog, Error, TEXT("ActorIIII: %s"), *GetPawn()->GetActorRotation().ToString());
 			Cast<AMainCharacter>(GetPawn())->MoveTo(hit.Location);
-			UE_LOG(DebugLog, Error, TEXT("ActorPPPP: %s"), *GetPawn()->GetActorRotation().ToString());
 		}
 	}
 }
@@ -50,5 +48,11 @@ void AMainController::SetupInputComponent() {
 
 	InputComponent->BindAction("Move", IE_Pressed, this, &AMainController::StartMoveTo);
 	InputComponent->BindAction("Move", IE_Released, this, &AMainController::StopMoveTo);
+
+	InputComponent->BindAction("Interact", IE_Released, this, &AMainController::Interact);
+}
+
+void AMainController::Interact() {
+	Cast<AMainCharacter>(GetPawn())->OnInteraction();
 }
 

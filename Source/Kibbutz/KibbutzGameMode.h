@@ -3,7 +3,9 @@
 #pragma once
 
 #include "GameFramework/GameMode.h"
+#include "Dialogues/DialogueManager.h"
 #include "KibbutzGameMode.generated.h"
+
 
 /**
  * The game mode.
@@ -15,4 +17,6 @@ class KIBBUTZ_API AKibbutzGameMode: public AGameMode {
 public:
 	// Constructor.
 	AKibbutzGameMode();
+
+	TMap<FString, TArray<FNPCStatement>> NPCStatementsMap;
 };
