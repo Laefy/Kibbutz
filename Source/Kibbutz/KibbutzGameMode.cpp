@@ -12,4 +12,6 @@ AKibbutzGameMode::AKibbutzGameMode() {
 	}
 
 	PlayerControllerClass = AMainController::StaticClass();
+	NPCStatementsMap = UDialogueManager::LoadDialogues();
+
 }
