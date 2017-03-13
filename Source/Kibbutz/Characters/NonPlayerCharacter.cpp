@@ -29,13 +29,13 @@ void ANonPlayerCharacter::Tick( float DeltaTime )
 
 void ANonPlayerCharacter::AllocateDialogueToNPC()
 {
-	// TODO Days
 	// TODO Variables
-	FString characterName = convertIDNametoName(ANonPlayerCharacter::GetName());
+	FriendlyName = convertIDNametoName(ANonPlayerCharacter::GetName());
+	UE_LOG(LogTemp, Warning, TEXT("%s"), *FriendlyName);
 	AKibbutzGameMode* const KibbutzGameMode = GetWorld()->GetAuthGameMode<AKibbutzGameMode>();
 	
-	if (KibbutzGameMode->NPCStatementsMap.Find(characterName) != nullptr) {
-		NPCStatements = *KibbutzGameMode->NPCStatementsMap.Find(characterName);
+	if (KibbutzGameMode->NPCStatementsMap.Find(FriendlyName) != nullptr) {
+		NPCStatements = *KibbutzGameMode->NPCStatementsMap.Find(FriendlyName);
 	}
 
 	

@@ -1,6 +1,6 @@
 Id,Day,Variable,"
 Question",Answer1,Answer2,Answer3,A1Goto,A2Goto,A3Goto
-1,1,,Oh ? Who are you ? I I never saw you !,"Oscar, nice to meet you !",I WILL NEVER TELL MY NAME,,2,3,0
+1,1,,Oh ? Who are you ? I never saw you !,"Oscar, nice to meet you !",I WILL NEVER TELL MY NAME,,2,3,0
 2,1,,"Me too, darling ! You seem to be a good guy. Be nice with Kibbutz's habitants. You'll see, your patience will be rewarded !",,,,0,0,0
 3,1,,"Ok, good start. No, clearly, you know how to introduce yourself. You're Oscar, right ? The mayor told us that you were moving in our town, hopefully. Well, i hope you will be kinder to the others of the village",,,,0,0,0
 4,1,bakerDay1_2,"Sorry darling, but i have a bit of work to do right now. You should see the mayor, i'm sure he has some tasks to give you. If not, you can also just stroll in the hamlet, or go to sleep. Do whatever you want to do !",,,,0,0,0
