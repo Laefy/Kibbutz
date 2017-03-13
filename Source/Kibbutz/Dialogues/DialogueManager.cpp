@@ -70,8 +70,8 @@ TArray<FNPCStatement> UDialogueManager::computeDialoguesIntoNPCStatements(const 
 				FPlayerResponse answer3(data->Answer3, data->A3Goto);
 				responses.Add(answer3);
 			}
-
-			FNPCStatement temp(data->Question, responses);
+			
+			FNPCStatement temp(data->Day, data->Question, responses);
 			NPCStatements.Add(temp);
 		}
 	}

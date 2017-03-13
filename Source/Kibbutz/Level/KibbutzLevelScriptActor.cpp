@@ -5,7 +5,7 @@ void AKibbutzLevelScriptActor::BeginPlay()
 {
 	Super::BeginPlay();
 
-	this->DayNightManager = new TimeManager(GetWorld());
+	/*this->DayNightManager = new TimeManager(GetWorld());
 
 	if (this->wTime) {
 		this->TimeWidget = CreateWidget<UUserWidget>(GetWorld(), this->wTime);
@@ -14,13 +14,13 @@ void AKibbutzLevelScriptActor::BeginPlay()
 			this->TimeWidget->AddToViewport();
 		}
 
-	}
+	}*/
 }
 
 void AKibbutzLevelScriptActor::Tick(float DeltaSeconds)
 {
 	Super::Tick(DeltaSeconds);
-	UTextBlock* w = (UTextBlock*)this->TimeWidget->GetWidgetFromName("TimeTextBlock");
+	/*UTextBlock* w = (UTextBlock*)this->TimeWidget->GetWidgetFromName("TimeTextBlock");
 	w->SetText(FText::FromString(*this->DayNightManager->GetTime()));
 	
 	this->DayNightManager->RotateSun(DeltaSeconds);
@@ -36,5 +36,8 @@ void AKibbutzLevelScriptActor::Tick(float DeltaSeconds)
 		}
 		                  
 	}
+
+	// Update BP variable
+	this->Day = this->DayNightManager->GetDay();*/
 }
 

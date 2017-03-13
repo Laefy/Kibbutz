@@ -4,6 +4,8 @@
 
 #include "GameFramework/GameMode.h"
 #include "Dialogues/DialogueManager.h"
+#include "Time/TimeManager.h"
+#include "Time/ClockStruct.h"
 #include "KibbutzGameMode.generated.h"
 
 
@@ -18,5 +20,14 @@ public:
 	// Constructor.
 	AKibbutzGameMode();
 
+	virtual void Tick(float DeltaSeconds) override;
+	virtual void BeginPlay() override;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Time)
+	FClockStruct Clock;
+
 	TMap<FString, TArray<FNPCStatement>> NPCStatementsMap;
+
+private:
+	TimeManager* DayNightManager;
 };
