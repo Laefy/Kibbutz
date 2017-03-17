@@ -1,7 +1,7 @@
 Id,Day,Variable,"
 Question",Answer1,Answer2,Answer3,A1Goto,A2Goto,A3Goto
 1,1,,Oh ? Who are you ? I never saw you !,"Oscar, nice to meet you !",I WILL NEVER TELL MY NAME,,2,3,0
-2,1,,"Me too, darling ! You seem to be a good guy. Be nice with Kibbutz's habitants. You'll see, your patience will be rewarded !",,,,0,0,0
+2,2,,"Me too, darling ! You seem to be a good guy. Be nice with Kibbutz's habitants. You'll see, your patience will be rewarded !",,,,0,0,0
 3,1,,"Ok, good start. No, clearly, you know how to introduce yourself. You're Oscar, right ? The mayor told us that you were moving in our town, hopefully. Well, i hope you will be kinder to the others of the village",,,,0,0,0
 4,1,bakerDay1_2,"Sorry darling, but i have a bit of work to do right now. You should see the mayor, i'm sure he has some tasks to give you. If not, you can also just stroll in the hamlet, or go to sleep. Do whatever you want to do !",,,,0,0,0
 5,2,,"Oscar ! I'm sorry but i really need you, and i can't find the mayor. My younger child is lost ! I can't find him ! I'm sure he gone in the forest, he loves to play there, despite my warnings.", It's a job for me !,Whydon't you go by yourself ?,Did you think i care about your child ? Duh.,6,7,8
@@ -25,8 +25,8 @@ Question",Answer1,Answer2,Answer3,A1Goto,A2Goto,A3Goto
 23,3,bakerDay2_normal,Hi Oscar. I'm sorry but i have a bit of work today. Come back later if you can !,,,,0,0,0
 24,3,bakerDay2_angry,"You're still there ? Please, just leave, you're so annoying today ! Hope you will be less unbearable today.",,,,0,0,0
 25,4,,Hello Oscar. i'm sorry but i have a huge order today. Could you come back later ? It would be nice. Thank you.,As you want...,,,0,0,0
-26,,foundCultActivites,Hello Oscar. i'm sorry but i have a huge order today. Could you come back later ? It would be nice. Thank you.,I need to talk to you about this night.,As you want...,,27,0,0
-27,,,"A cult ? Shit... No, i mean. What are you talkng about ? There's nothing such a cult here, don't be ridiculous.",I saw it...,"You're right, it was probably a dream.",,0,0,0
-28,,,"I'm sure. Listen, take a moment for you, stay home and watch TV or whatever. If you wan't, we can talk about this ""cult"" tomorrow. Is it ok for you ? Now, leave me please, as I said, i have a huge amount of work today !
+26,4,foundCultActivites,Hello Oscar. i'm sorry but i have a huge order today. Could you come back later ? It would be nice. Thank you.,I need to talk to you about this night.,As you want...,,27,0,0
+27,4,,"A cult ? Shit... No, i mean. What are you talkng about ? There's nothing such a cult here, don't be ridiculous.",I saw it...,"You're right, it was probably a dream.",,0,0,0
+28,4,,"I'm sure. Listen, take a moment for you, stay home and watch TV or whatever. If you wan't, we can talk about this ""cult"" tomorrow. Is it ok for you ? Now, leave me please, as I said, i have a huge amount of work today !
 ","Ok, thanks
 ",,,0,0,0

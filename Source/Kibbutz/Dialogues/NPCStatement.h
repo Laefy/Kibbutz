@@ -13,8 +13,9 @@ public:
 	{
 	}
 
-	FNPCStatement(FText dialogue, TArray<FPlayerResponse> responses)
+	FNPCStatement(int day, FText dialogue, TArray<FPlayerResponse> responses)
 	{
+		Day = day;
 		NPC_dialogue = dialogue;
 		Player_Responses = responses;
 	}
@@ -24,4 +25,7 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Dialogue)
 		TArray<FPlayerResponse> Player_Responses;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Dialogue)
+		int32 Day;
 };
