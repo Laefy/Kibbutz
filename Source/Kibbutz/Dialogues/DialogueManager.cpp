@@ -71,7 +71,6 @@ TArray<FNPCStatement> UDialogueManager::computeDialoguesIntoNPCStatements(const 
 				responses.Add(answer3);
 			}
 
-			UE_LOG(LogTemp, Warning, TEXT("%d"), data->Day);
 			FNPCStatement temp(data->Day, data->Question, responses);
 			NPCStatements.Add(temp);
 		}

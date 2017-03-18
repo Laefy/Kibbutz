@@ -9,7 +9,8 @@
 #include "KibbutzHUD.generated.h"
 
 /**
-*
+*	Kibbutz HUD
+*	Displaying the time widget (clock)
 */
 UCLASS()
 class KIBBUTZ_API AKibbutzHUD : public AHUD

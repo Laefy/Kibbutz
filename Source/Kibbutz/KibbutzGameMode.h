@@ -8,6 +8,7 @@
 #include "Time/ClockStruct.h"
 #include "KibbutzGameMode.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FGameEventDelegate_OnBecomeDay, uint8, Day);
 
 /**
 * The game mode.
@@ -28,6 +29,8 @@ public:
 
 	TMap<FString, TArray<FNPCStatement>> NPCStatementsMap;
 
+	UPROPERTY(BlueprintAssignable, BlueprintCallable, Category = "Day Events")
+		FGameEventDelegate_OnBecomeDay OnBecomeDay;
 private:
 	TimeManager* DayNightManager;
 };

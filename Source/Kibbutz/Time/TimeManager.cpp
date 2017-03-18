@@ -3,6 +3,7 @@
 #include "Kibbutz.h"
 #include "TimeManager.h"
 
+// TODO : Would be better if we could link those two so it's more dynamic
 const float TimeManager::SUN_SPEED = 0.09;
 const float TimeManager::DAY_DURATION_SECONDS = 90;
 

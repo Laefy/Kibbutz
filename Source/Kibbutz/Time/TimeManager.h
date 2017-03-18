@@ -18,7 +18,7 @@ public:
 	static const float SUN_SPEED;
 	static const float DAY_DURATION_SECONDS;
 	bool isNight = false;
-	bool isPreviousFrameNight = false;
+	bool isPreviousFrameNight = true;
 
 private:
 	UWorld* WorldRef;

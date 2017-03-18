@@ -31,7 +31,6 @@ void ANonPlayerCharacter::AllocateDialogueToNPC()
 {
 	// TODO Variables
 	FriendlyName = convertIDNametoName(ANonPlayerCharacter::GetName());
-	UE_LOG(LogTemp, Warning, TEXT("%s"), *FriendlyName);
 	AKibbutzGameMode* const KibbutzGameMode = GetWorld()->GetAuthGameMode<AKibbutzGameMode>();
 	
 	if (KibbutzGameMode->NPCStatementsMap.Find(FriendlyName) != nullptr) {

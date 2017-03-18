@@ -33,15 +33,12 @@ void AKibbutzGameMode::Tick(float DeltaSeconds)
 	this->Clock = this->DayNightManager->GetTime();
 
 	// Re-activate if we need to trigger an event when night / day
-	/*if (this->DayNightManager->isPreviousFrameNight != this->DayNightManager->isNight) {
-	this->DayNightManager->isPreviousFrameNight = this->DayNightManager->isNight;
+	if (this->DayNightManager->isPreviousFrameNight != this->DayNightManager->isNight) {
+		this->DayNightManager->isPreviousFrameNight = this->DayNightManager->isNight;
 
-	if (this->DayNightManager->isNight) {
-	this->BecomeNight();
+		if (!this->DayNightManager->isNight) {
+			this->OnBecomeDay.Broadcast(this->Clock.days);
+		}
 	}
-	else {
-	this->BecomeDay();
-	}
-	}*/
 
 }
