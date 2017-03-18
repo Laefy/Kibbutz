@@ -1,0 +1,39 @@
+// Fill out your copyright notice in the Description page of Project Settings.
+
+#pragma once
+
+#include "Quest.h"
+#include "RepairHouse_Quest.generated.h"
+
+class UPrimitiveComponent;
+struct FHitResult;
+
+/**
+* @brief A quest is an base object used to handle the advancement of the player in a given quest.
+* Inherit it in order to use it.
+*/
+UCLASS()
+class KIBBUTZ_API ARepairHouse_Quest: public AQuest {
+	GENERATED_BODY()
+
+public:
+	// Sets default values for this actor's properties
+	ARepairHouse_Quest();
+
+	// Called when the game starts or when spawned.
+	virtual void BeginPlay() override;
+
+	// Overrides Quest::CheckStepCompleted.
+	virtual bool CheckStepCompleted(int CurrentStep);
+
+protected:
+	// The house area.
+	UPROPERTY(EditAnywhere, Category="Repair House Quest", meta=(AllowPrivateAccess))
+	AActor* HouseArea;
+
+private:
+	TArray<bool> CompletedSteps;
+
+	UFUNCTION()
+	void OnHouseAreaBeginOverlap(AActor* OverlappedActor, AActor* OtherActor);
+};
