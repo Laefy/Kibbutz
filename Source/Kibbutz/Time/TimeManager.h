@@ -1,10 +1,10 @@
 #pragma once
-
+#include "ClockStruct.h"
 /**
- * Handle all time related functions
- * Day/Night Cycle
- * In game clock
- */
+* Handle all time related functions
+* Day/Night Cycle
+* In game clock
+*/
 class KIBBUTZ_API TimeManager
 {
 public:
@@ -12,20 +12,20 @@ public:
 	TimeManager(UWorld* World);
 
 	void RotateSun(float DeltaSeconds);
-	FString GetTime();
+	FClockStruct GetTime();
 	FString FormatDateToString(int days, int hours, int minutes);
 
 	static const float SUN_SPEED;
 	static const float DAY_DURATION_SECONDS;
 	bool isNight = false;
-	bool isPreviousFrameNight = false;
-	int inGameMinutes = 0;
-	int inGameHours = 8;
-	int inGameDays = 1;
+	bool isPreviousFrameNight = true;
 
 private:
 	UWorld* WorldRef;
 	ADirectionalLight *Sun = nullptr;
 	AActor* SkySphere = nullptr;
 	FRotator sunRotation;
+	int inGameMinutes = 0;
+	int inGameHours = 8;
+	int inGameDays = 1;
 };

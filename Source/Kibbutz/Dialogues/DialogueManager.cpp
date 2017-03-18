@@ -71,7 +71,7 @@ TArray<FNPCStatement> UDialogueManager::computeDialoguesIntoNPCStatements(const 
 				responses.Add(answer3);
 			}
 
-			FNPCStatement temp(data->Question, responses);
+			FNPCStatement temp(data->Day, data->Question, responses);
 			NPCStatements.Add(temp);
 		}
 	}
