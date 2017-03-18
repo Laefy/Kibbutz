@@ -9,6 +9,8 @@ AKibbutzGameMode::AKibbutzGameMode() {
 	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/Characters/MainCharacterBP"));
 	if (PlayerPawnBPClass.Class != NULL) {
 		DefaultPawnClass = PlayerPawnBPClass.Class;
+	} else {
+		UE_LOG(DebugLog, Error, TEXT("Unable to find DefaultPawnClass."));
 	}
 
 	PlayerControllerClass = AMainController::StaticClass();

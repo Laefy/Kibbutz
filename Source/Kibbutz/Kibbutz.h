@@ -4,10 +4,15 @@
 
 #include "Engine.h"
 
+#include "Runtime/UMG/Public/UMG.h"
+#include "Runtime/UMG/Public/UMGStyle.h"
+#include "Runtime/UMG/Public/Slate/SObjectWidget.h"
+#include "Runtime/UMG/Public/IUMGModule.h"
+#include "Runtime/UMG/Public/Blueprint/UserWidget.h"
+
 DECLARE_LOG_CATEGORY_EXTERN(DebugLog, Log, All);
 
 // Collision channel dedicated to element that can be pointed with the mouse cursor.
 #define ECC_Pointer ECC_GameTraceChannel1
 
-enum QuestTitle { RepairHouse, OtherQuest };
 enum EventType { ObjectPut, ObjectGiven, LocationEnter, LocationLeave, DialogUpdated, Sunrise };

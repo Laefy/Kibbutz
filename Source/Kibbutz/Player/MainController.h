@@ -5,6 +5,10 @@
 #include "GameFramework/PlayerController.h"
 #include "MainController.generated.h"
 
+class AQuestBook;
+class AQuest;
+class UQuestMenu;
+
 /**
  * The main controller for the game.
  * Send actions to the character, the environment, the GUI, and so on.
@@ -16,6 +20,9 @@ class KIBBUTZ_API AMainController: public APlayerController {
 public:
 	// Constructor.
 	AMainController();
+
+	// Override AActor::PostInitializeComponents.
+	virtual void PostInitializeComponents() override;
 
 	// Start running AMainCharacter::MoveTo.
 	void StartMoveTo();
@@ -34,11 +41,24 @@ public:
 
 	// Override APlayerController::UnPossess.
 	virtual void UnPossess() override;
+
+	// Add a new quest for the player.
+	void AddQuest(AQuest* Quest);
 	
 protected:
 	// Override APlayerController::SetupInputComponent.
 	virtual void SetupInputComponent() override;
 
+	// The quest book.
+	AQuestBook* QuestBook;
+
 private:
 	bool bMovingTo;
+
+	// The quest menu.
+	TSubclassOf<UQuestMenu> QuestMenuClass;
+	UQuestMenu* QuestMenu;
+
+	// Open or close the quest menu.
+	void TriggerQuestMenu();
 };
