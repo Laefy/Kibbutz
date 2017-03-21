@@ -25,6 +25,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Dialogue)
 	TArray<FNPCStatement> NPCStatements;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Dialogue)
+	FString FriendlyName;
 private:
 	void AllocateDialogueToNPC();
 	FString convertIDNametoName(FString IDName);
