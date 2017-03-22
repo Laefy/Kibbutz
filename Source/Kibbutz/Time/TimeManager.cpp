@@ -45,18 +45,21 @@ void TimeManager::RotateSun(float DeltaSeconds)
 	this->sunRotation.Pitch = SUN_SPEED * DeltaSeconds;
 	this->sunRotation.Roll = 0.0f;
 	this->sunRotation.Yaw = 0.0f;
-	this->Sun->AddActorLocalRotation(this->sunRotation);
+	if (this->Sun) {
+		this->Sun->AddActorLocalRotation(this->sunRotation);
 
-	FOutputDeviceNull ar;
-	this->SkySphere->CallFunctionByNameWithArguments(TEXT("UpdateSunDirection"), ar, NULL, true);
+		FOutputDeviceNull ar;
+		this->SkySphere->CallFunctionByNameWithArguments(TEXT("UpdateSunDirection"), ar, NULL, true);
 
-	float sunAngle = this->Sun->GetActorRotation().Clamp().Pitch;
-	if (sunAngle > 0 && sunAngle < 180) {
-		this->isNight = true;
+		float sunAngle = this->Sun->GetActorRotation().Clamp().Pitch;
+		if (sunAngle > 0 && sunAngle < 180) {
+			this->isNight = true;
+		}
+		else {
+			this->isNight = false;
+		}
 	}
-	else {
-		this->isNight = false;
-	}
+
 
 }
 
