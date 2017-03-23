@@ -31,6 +31,7 @@ void AItem::PostLoad() {
 	Update();
 }
 
+#if WITH_EDITOR
 void AItem::PostEditChangeProperty(struct FPropertyChangedEvent& Event) {
 	FName PropertyName = (Event.Property != nullptr) ? Event.Property->GetFName() : NAME_None;
 	if (PropertyName == GET_MEMBER_NAME_CHECKED(AItem, Model)) {
@@ -39,6 +40,7 @@ void AItem::PostEditChangeProperty(struct FPropertyChangedEvent& Event) {
 
 	Super::PostEditChangeProperty(Event);
 }
+#endif
 
 void AItem::NotifyModelUpdate(AItemModel* ItemModel) {
 	if (ItemModel == Model) {

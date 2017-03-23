@@ -13,6 +13,7 @@ AItemModel::AItemModel() {
 	SellPrice = 0.f;
 }
 
+#if WITH_EDITOR
 void AItemModel::PostEditChangeProperty(struct FPropertyChangedEvent& Event) {
 	FName PropertyName = (Event.MemberProperty != nullptr) ? Event.MemberProperty->GetFName() : NAME_None;
 
@@ -27,3 +28,4 @@ void AItemModel::PostEditChangeProperty(struct FPropertyChangedEvent& Event) {
 
 	Super::PostEditChangeProperty(Event);
 }
+#endif

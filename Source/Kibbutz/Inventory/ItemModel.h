@@ -18,8 +18,10 @@ public:
 
 	FVector GetScale() const;
 
+	#if WITH_EDITOR
 	// Call NotifyModelUpdate if the mesh has changed.
 	virtual void PostEditChangeProperty(struct FPropertyChangedEvent& Event) override;
+	#endif
 
 private:
 	UPROPERTY(Category = Item, EditAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
