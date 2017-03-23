@@ -19,8 +19,10 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaSeconds) override;
 
+	#if WITH_EDITOR
 	// Update the item when the model is changed.
 	virtual void PostEditChangeProperty(struct FPropertyChangedEvent& Event) override;
+	#endif
 
 	// Call update after loading an item.
 	virtual void PostLoad() override;
