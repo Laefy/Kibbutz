@@ -16,7 +16,7 @@ AQuest::AQuest() {
 void AQuest::BeginPlay() {
 	Super::BeginPlay();
 
-	Cast<AMainController>(GetWorld()->GetFirstPlayerController())->AddQuest(this);
+	//Cast<AMainController>(GetWorld()->GetFirstPlayerController())->AddQuest(this);
 }
 
 bool AQuest::CheckAdvancement() {

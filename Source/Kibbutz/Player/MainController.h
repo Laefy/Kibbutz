@@ -46,6 +46,7 @@ public:
 	void Interact();
 
 	// Add a new quest for the player.
+	UFUNCTION(BlueprintCallable, Category = "Quest")
 	void AddQuest(AQuest* Quest);
 	
 protected:
