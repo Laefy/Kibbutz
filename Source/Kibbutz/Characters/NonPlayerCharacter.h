@@ -8,29 +8,25 @@
 #include "NonPlayerCharacter.generated.h"
 
 UCLASS()
-class KIBBUTZ_API ANonPlayerCharacter : public ACharacter
-{
+class KIBBUTZ_API ANonPlayerCharacter: public ACharacter {
 	GENERATED_BODY()
-	
-public:	
+
+public:
 	// Sets default values for this actor's properties
 	ANonPlayerCharacter();
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-	
-	// Called every frame
-	virtual void Tick( float DeltaSeconds ) override;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Dialogue)
-	TArray<FNPCStatement> NPCStatements;
+	// Called every frame
+	virtual void Tick(float DeltaSeconds) override;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Dialogue)
-	FString FriendlyName;
+		TArray<FNPCStatement> NPCStatements;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Dialogue)
+		FString FriendlyName;
 private:
 	void AllocateDialogueToNPC();
 	FString convertIDNametoName(FString IDName);
-	
-	UPROPERTY(EditAnywhere)
-	UCameraComponent* Camera;
 };
