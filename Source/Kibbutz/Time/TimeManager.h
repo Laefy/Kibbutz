@@ -1,31 +1,51 @@
 #pragma once
+
+#include "GameFramework/Actor.h"
 #include "ClockStruct.h"
+
+#include "TimeManager.generated.h"
+
 /**
 * Handle all time related functions
 * Day/Night Cycle
 * In game clock
 */
-class KIBBUTZ_API TimeManager
-{
-public:
-	TimeManager();
-	TimeManager(UWorld* World);
+UCLASS()
+class KIBBUTZ_API ATimeManager: public AActor {
+	GENERATED_BODY()
 
-	void RotateSun(float DeltaSeconds);
-	FClockStruct GetTime();
-	FString FormatDateToString(int days, int hours, int minutes);
+public:
+	ATimeManager();
+
+	// Override AActor::Tick.
+	virtual void Tick(float DeltaTime) override;
+
+	// Override AActor::BeginPlay.
+	virtual void BeginPlay() override;
+
+	//FString FormatDateToString(int days, int hours, int minutes);
 
 	static const float SUN_SPEED;
 	static const float DAY_DURATION_SECONDS;
 	bool isNight = false;
 	bool isPreviousFrameNight = true;
 
+	FORCEINLINE FClockStruct GetTime() const;
+	FORCEINLINE void SetTime(FClockStruct const& Time);
+
 private:
-	UWorld* WorldRef;
 	ADirectionalLight *Sun = nullptr;
 	AActor* SkySphere = nullptr;
-	FRotator sunRotation;
-	int inGameMinutes = 0;
-	int inGameHours = 8;
-	int inGameDays = 1;
+	FRotator SunRotation;
+
+	FClockStruct Clock;
+	float DeltaSeconds;
 };
+
+FORCEINLINE void ATimeManager::SetTime(FClockStruct const& Time) {
+	Tick(Time - Clock);
+}
+
+FORCEINLINE FClockStruct ATimeManager::GetTime() const {
+	return Clock;
+}

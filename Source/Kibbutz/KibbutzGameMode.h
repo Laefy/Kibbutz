@@ -31,6 +31,10 @@ public:
 
 	UPROPERTY(BlueprintAssignable, BlueprintCallable, Category = "Day Events")
 		FGameEventDelegate_OnBecomeDay OnBecomeDay;
+
+	UFUNCTION(BlueprintCallable, Category = "Timeline")
+	void SetTime(FClockStruct const& Time);
+
 private:
-	TimeManager* DayNightManager;
+	ATimeManager* DayNightManager;
 };
