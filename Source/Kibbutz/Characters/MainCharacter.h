@@ -30,9 +30,9 @@ public:
 	// Move the character toward the given destination.
 	void MoveTo(FVector const& Destination);
 
-	// Teleport the character to a new location.
-	UFUNCTION(BlueprintCallable, Category = "Movement")
-	void Teleport(ATargetPoint const* Destination);
+	// Trigger the next day.
+	UFUNCTION(BlueprintCallable, Category = "Timeline")
+	void GoHome();
 
 	// Triggered when an object enters the interaction area.
 	UFUNCTION()
@@ -56,4 +56,7 @@ private:
 	class UCapsuleComponent* InteractionArea;
 
 	class AItem* Target;
+
+	UPROPERTY(Category = Timeline, EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+	class ATargetPoint* Home;
 };
