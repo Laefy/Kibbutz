@@ -2,6 +2,7 @@
 
 #include "Kibbutz.h"
 #include "TimeManager.h"
+#include "Kismet/KismetMathLibrary.h"
 
 // TODO : Would be better if we could link those two so it's more dynamic
 const float ATimeManager::SUN_SPEED = 0.09;
@@ -46,11 +47,13 @@ void ATimeManager::Tick(float DeltaTime) {
 
 	DeltaSeconds = FMath::Fmod(DeltaSeconds, 1.f);
 
-	SunRotation.Pitch = SUN_SPEED * DeltaSeconds;
-	SunRotation.Roll = 0.0f;
-	SunRotation.Yaw = 0.0f;
 	if (Sun) {
-		Sun->AddActorLocalRotation(SunRotation);
+		FRotator Rotation = Sun->GetActorRotation();
+		Rotation.Pitch = FMath::Fmod(((Clock.hours + Clock.minutes / 60.f) + 30.f) * 360.f / 24.f, 360.f);
+		Rotation.Yaw = 0;
+		Rotation.Roll = 0;
+
+		Sun->SetActorRotation(Rotation);
 
 		FOutputDeviceNull ar;
 		SkySphere->CallFunctionByNameWithArguments(TEXT("UpdateSunDirection"), ar, NULL, true);
