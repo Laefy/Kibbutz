@@ -71,9 +71,14 @@ void AMainCharacter::MoveTo(FVector const& Destination) {
 	SpringArm->SetWorldRotation(FRotator(-30.f, 0.f, 0.f));
 }
 
-void AMainCharacter::Teleport(ATargetPoint const* Destination) {
+void AMainCharacter::GoHome() {
+	if (Home == nullptr) {
+		UE_LOG(DebugLog, Warning, TEXT("Home has not been set for this character."));
+		return;
+	}
+
 	// Move the character.
-	SetActorLocationAndRotation(Destination->GetActorLocation(), Destination->GetActorRotation());
+	SetActorLocationAndRotation(Home->GetActorLocation(), Home->GetActorRotation());
 
 	// Reajust the spring arm position.
 	SpringArm->SetWorldRotation(FRotator(-30.f, 0.f, 0.f));
@@ -101,4 +106,3 @@ void AMainCharacter::OnInteraction() {
 		Target = nullptr;
 	}
 }
-
