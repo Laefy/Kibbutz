@@ -71,6 +71,14 @@ void AMainCharacter::MoveTo(FVector const& Destination) {
 	SpringArm->SetWorldRotation(FRotator(-30.f, 0.f, 0.f));
 }
 
+void AMainCharacter::Teleport(ATargetPoint const* Destination) {
+	// Move the character.
+	SetActorLocationAndRotation(Destination->GetActorLocation(), Destination->GetActorRotation());
+
+	// Reajust the spring arm position.
+	SpringArm->SetWorldRotation(FRotator(-30.f, 0.f, 0.f));
+}
+
 void AMainCharacter::OnEnterInteractionArea(UPrimitiveComponent* Component, AActor* Other, UPrimitiveComponent* OtherComponent, int32, bool, const FHitResult&) {
 	AItem* Item = Cast<AItem>(Other);
 	if (Item != nullptr) {

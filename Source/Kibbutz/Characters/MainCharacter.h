@@ -5,6 +5,8 @@
 #include "GameFramework/Character.h"
 #include "MainCharacter.generated.h"
 
+class ATargetPoint;
+
 /**
  * The main character, controlled by the player.
  */
@@ -26,7 +28,11 @@ public:
 	virtual void Tick(float DeltaSeconds) override;
 
 	// Move the character toward the given destination.
-	void MoveTo(FVector const& destination);
+	void MoveTo(FVector const& Destination);
+
+	// Teleport the character to a new location.
+	UFUNCTION(BlueprintCallable, Category = "Movement")
+	void Teleport(ATargetPoint const* Destination);
 
 	// Triggered when an object enters the interaction area.
 	UFUNCTION()

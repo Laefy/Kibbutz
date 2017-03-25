@@ -39,4 +39,7 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Dialogue)
 		int32 A3Goto;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Dialogue)
+		FString QuestName;
 };
