@@ -26,7 +26,7 @@ public:
 	// Overrides Quest::CheckStepCompleted.
 	virtual bool CheckStepCompleted(int CurrentStep);
 
-	UFUNCTION(BlueprintCallable, Category = Game)
+	UFUNCTION(BlueprintCallable, Category = "Repair House Quest")
 	void CheckIfBrokenPlanksAreRepaired(bool hasPlankRepaired);
 
 protected:

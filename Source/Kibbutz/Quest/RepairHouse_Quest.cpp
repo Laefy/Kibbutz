@@ -21,13 +21,11 @@ ARepairHouse_Quest::ARepairHouse_Quest() {
 	Steps.Add("- Seek the toolbox you forgot home.");
 	CompletedSteps.Add(false);
 
-	Steps.Add("- Repair the broken plank using the crafting menu.");
-	CompletedSteps.Add(false);
+	//Steps.Add("- Repair the broken plank using the crafting menu.");
+	//CompletedSteps.Add(false);
 
 	Steps.Add("- Fix the hole.");
 	CompletedSteps.Add(false);
-
-	UE_LOG(DebugLog, Warning, TEXT("Quest initialized."));
 
 }
 
@@ -55,10 +53,16 @@ bool ARepairHouse_Quest::CheckStepCompleted(int CurrentStep) {
 
 void ARepairHouse_Quest::CheckIfBrokenPlanksAreRepaired(bool hasPlankRepaired) {
 	
+	//UE_LOG(DebugLog, Error, TEXT("Function called"));
+
+
 	if (CompletedSteps[1] == true && hasPlankRepaired == true) {
 
 		CompletedSteps[2] = true;
 		CheckAdvancement();
+
+		//(DebugLog, Error, TEXT("Function completed"));
+
 	}
 }
 
@@ -69,7 +73,7 @@ void ARepairHouse_Quest::OnWoodcutterHouseAreaBeginOverlap(AActor* OverlappedAct
 		CheckAdvancement();
 
 	}
-	else if (CompletedSteps[2] == true && Cast<AMainCharacter>(OtherActor) != nullptr) {
+	else if (CompletedSteps[1] == true && Cast<AMainCharacter>(OtherActor) != nullptr) {
 
 		WoodcutterHouseArea->OnActorBeginOverlap.RemoveDynamic(this, &ARepairHouse_Quest::OnWoodcutterHouseAreaBeginOverlap);
 
@@ -80,7 +84,7 @@ void ARepairHouse_Quest::OnWoodcutterHouseAreaBeginOverlap(AActor* OverlappedAct
 			Components[i]->UnregisterComponent();
 		}
 
-		CompletedSteps[2] = true;
+		CompletedSteps[1] = true;
 		CheckAdvancement();
 
 	}
