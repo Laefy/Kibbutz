@@ -27,8 +27,6 @@ public:
 
 	static const float SUN_SPEED;
 	static const float DAY_DURATION_SECONDS;
-	bool isNight = false;
-	bool isPreviousFrameNight = true;
 
 	FORCEINLINE FClockStruct GetTime() const;
 	FORCEINLINE void SetTime(FClockStruct const& Time);

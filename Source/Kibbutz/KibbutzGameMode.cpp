@@ -28,29 +28,22 @@ void AKibbutzGameMode::BeginPlay() {
 
 void AKibbutzGameMode::Tick(float DeltaSeconds) {
 	Super::Tick(DeltaSeconds);
-	Clock = DayNightManager->GetTime();
 
-	// Re-activate if we need to trigger an event when night / day
-	if (DayNightManager->isPreviousFrameNight != DayNightManager->isNight) {
-		DayNightManager->isPreviousFrameNight = DayNightManager->isNight;
-
-		if (!DayNightManager->isNight) {
-			OnBecomeDay.Broadcast(Clock.days);
-		}
-	}
+	UpdateClock();
 }
 
 void AKibbutzGameMode::SetTime(FClockStruct const& Time) {
 	DayNightManager->SetTime(Time);
+
+	UpdateClock();
+}
+
+void AKibbutzGameMode::UpdateClock() {
+	FClockStruct OldClock = Clock;
 	Clock = DayNightManager->GetTime();
 
-	// Re-activate if we need to trigger an event when night / day
-	if (DayNightManager->isPreviousFrameNight != DayNightManager->isNight) {
-		DayNightManager->isPreviousFrameNight = DayNightManager->isNight;
-
-		if (!DayNightManager->isNight) {
-			OnBecomeDay.Broadcast(this->Clock.days);
-		}
+	if (OldClock.days != Clock.days) {
+		OnBecomeDay.Broadcast(Clock.days);
 	}
 }
 

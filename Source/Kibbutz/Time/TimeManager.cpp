@@ -64,10 +64,5 @@ void ATimeManager::Tick(float DeltaTime) {
 		SkySphere->CallFunctionByNameWithArguments(TEXT("UpdateSunDirection"), ar, NULL, true);
 
 		float sunAngle = Sun->GetActorRotation().Clamp().Pitch;
-		if (sunAngle > 0 && sunAngle < 180) {
-			this->isNight = true;
-		} else {
-			this->isNight = false;
-		}
 	}
 }
