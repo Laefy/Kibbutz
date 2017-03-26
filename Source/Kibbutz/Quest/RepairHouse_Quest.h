@@ -27,6 +27,7 @@ public:
 	virtual bool CheckStepCompleted(int CurrentStep);
 
 protected:
+
 	// The hero house area.
 	UPROPERTY(EditAnywhere, Category="Repair House Quest", meta=(AllowPrivateAccess))
 	AActor* HeroHouseArea;
@@ -36,6 +37,7 @@ protected:
 	AActor* WoodcutterHouseArea;
 
 private:
+	
 	TArray<bool> CompletedSteps;
 
 	UFUNCTION()

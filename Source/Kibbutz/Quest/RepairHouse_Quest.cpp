@@ -47,20 +47,37 @@ void ARepairHouse_Quest::BeginPlay() {
 		UE_LOG(DebugLog, Error, TEXT("WoodcutterHouseArea was not specified for RepairHouse_Quest."));
 	}
 
-	UE_LOG(DebugLog, Warning, TEXT("BeginPlay launched"));
+}
+
+void checkRepairSteps() {
 
 }
 
 bool ARepairHouse_Quest::CheckStepCompleted(int CurrentStep) {
-	UE_LOG(DebugLog, Warning, TEXT("Step filled."));
 	return CompletedSteps[CurrentStep];
 }
 
 void ARepairHouse_Quest::OnWoodcutterHouseAreaBeginOverlap(AActor* OverlappedActor, AActor* OtherActor) {
-	if (Cast<AMainCharacter>(OtherActor) != nullptr) {
-		WoodcutterHouseArea->OnActorBeginOverlap.RemoveDynamic(this, &ARepairHouse_Quest::OnWoodcutterHouseAreaBeginOverlap);
+	if (CompletedSteps[0] == false && Cast<AMainCharacter>(OtherActor) != nullptr) {
+
 		CompletedSteps[0] = true;
 		CheckAdvancement();
+
+	}
+	else if (CompletedSteps[1] == true && Cast<AMainCharacter>(OtherActor) != nullptr) {
+
+		WoodcutterHouseArea->OnActorBeginOverlap.RemoveDynamic(this, &ARepairHouse_Quest::OnWoodcutterHouseAreaBeginOverlap);
+
+		TArray<UStaticMeshComponent*> Components;
+		WoodcutterHouseArea->GetComponents<UStaticMeshComponent>(Components);
+		for (int32 i = 1; i<Components.Num(); i++)
+		{
+			Components[i]->UnregisterComponent();
+		}
+
+		CompletedSteps[2] = true;
+		CheckAdvancement();
+
 	}
 }
 
