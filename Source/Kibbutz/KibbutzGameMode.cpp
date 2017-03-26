@@ -53,3 +53,11 @@ void AKibbutzGameMode::SetTime(FClockStruct const& Time) {
 		}
 	}
 }
+
+void AKibbutzGameMode::BlockTime(bool Block) {
+	DayNightManager->bBlocked = Block;
+}
+
+bool AKibbutzGameMode::IsTimeBlocked() const {
+	return DayNightManager->bBlocked;
+}
