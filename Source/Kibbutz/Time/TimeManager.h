@@ -33,6 +33,8 @@ public:
 	FORCEINLINE FClockStruct GetTime() const;
 	FORCEINLINE void SetTime(FClockStruct const& Time);
 
+	bool bBlocked;
+
 private:
 	ADirectionalLight *Sun = nullptr;
 	AActor* SkySphere = nullptr;
@@ -40,6 +42,7 @@ private:
 
 	FClockStruct Clock;
 	float DeltaSeconds;
+
 };
 
 FORCEINLINE void ATimeManager::SetTime(FClockStruct const& Time) {

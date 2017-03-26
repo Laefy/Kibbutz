@@ -35,6 +35,12 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Timeline")
 	void SetTime(FClockStruct const& Time);
 
+	UFUNCTION(BlueprintCallable, Category = "Timeline")
+	void BlockTime(bool Block);
+
+	UFUNCTION(BlueprintCallable, Category = "Timeline")
+	bool IsTimeBlocked() const;
+
 private:
 	ATimeManager* DayNightManager;
 };
