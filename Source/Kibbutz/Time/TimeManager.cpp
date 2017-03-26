@@ -13,6 +13,7 @@ ATimeManager::ATimeManager() {
 
 	Clock = FClockStruct(1, 8, 0);
 	DeltaSeconds = 0;
+	bBlocked = false;
 }
 
 void ATimeManager::BeginPlay() {
@@ -41,6 +42,10 @@ void ATimeManager::BeginPlay() {
 
 void ATimeManager::Tick(float DeltaTime) {
 	Super::Tick(DeltaTime);
+
+	if (bBlocked) {
+		return;
+	}
 
 	DeltaSeconds += DeltaTime;
 	Clock += DeltaSeconds;
