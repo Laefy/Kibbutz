@@ -11,6 +11,7 @@ AQuest::AQuest() {
 
 	Advance = 0;
 	Completed = false;
+	Active = false;
 }
 
 void AQuest::BeginPlay() {
@@ -20,6 +21,7 @@ void AQuest::BeginPlay() {
 }
 
 void AQuest::AddedToBook() {
+	Active = true;
 }
 
 bool AQuest::CheckAdvancement() {
@@ -38,4 +40,8 @@ bool AQuest::CheckAdvancement() {
 
 bool AQuest::CheckStepCompleted(int CurrentStep) {
 	return false;
+}
+
+bool AQuest::isActive() {
+	return Active;
 }

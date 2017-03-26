@@ -1,0 +1,25 @@
+Id,Day,Variable,"
+Question",Answer1,Answer2,Answer3,A1Goto,A2Goto,A3Goto,QuestName
+1,1,,"Welcome Oscar, I'm Georges the mayor, I am glad to finally meet you! How was your trip?","Nice to meet you too! Good, thank you.",,,2,0,0,
+2,1,,Great! Did you have time to visit our village yet?,Not yet,,,3,0,0,
+3,1,,"Your first mission will help you meet Kibbutz's people.
+We have an old cabin which has been destroyed by the wind last winter. I would like you to fix it. 
+You only need a few pieces of wood, ask Charlie the woodcutter, he is a bit grumpy but always here to help!
+
+","Looks like this task is the perfect fit for me, let's go!",Where should I find the lumberjack ?,,5,4,0,
+4,1,,"Go to the north of the island, you should find him in the woods.","Ok, thank you.",,,5,0,0,
+5,1,,Come back when you are done.,Yep,,,-6,0,0,RepairHouse_Quest
+6,1,RepairHouse_Quest,"Glad to see you back Oscar, could you do me a favor ?","Yes, sure.","No, sorry, I need some time to rest, the trip was exhausting.",,7,8,0,
+7,1,,"Alright, the path between the beach and the bridge is one of the most used in the village.
+However, winter is coming and we need some lights to light the path.
+Could you build some torch and put them all along the path ?","I'll be happy to help my neighbors find their 
+way through the dark during winter's nights, let's do it!",Yes absolutely! Where can I find coal to build torches?,,0,9,0,
+8,1,,Oh ok... See you later I guess then.,,,,0,0,0,
+9,1,,"Go find Tom at his shop, he should have some. Here is 200 coins, make good use of it!","Ok, thank you.",,,0,0,0,
+10,2,,"Oh hello Oscar, how are you today?","Good, thank you! ",,,0,0,0,
+11,2,,"Alright, as I said, yesterday winter and Christmas is coming. Thus, I would like you to put some christmas lights on the trees.
+Could you do that for me?","Yeah, that's the kind of job I like!",I hate christmas why would I do that?,,12,13,0,
+12,2,,Perfect! Take these lights and bring the Christmas spirit to Kibbutz!,I'll do that.,Only on the trees?,,0,14,0,
+13,2,,Oh really? That's sad... But could you do that for the people of Kibbutz?,"Ok, I'll do it...","No, sorry...",,0,0,0,
+14,2,,"Yes, it will be easier and we do not have unlimited christmas lights.",Ok,,,0,0,0,
+15,3,,"Hello Oscar, it's a beautiful day, isn't it?",,,,0,0,0,
