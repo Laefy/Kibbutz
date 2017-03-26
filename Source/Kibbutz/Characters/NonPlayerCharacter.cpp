@@ -25,7 +25,6 @@ void ANonPlayerCharacter::Tick(float DeltaTime) {
 }
 
 void ANonPlayerCharacter::AllocateDialogueToNPC() {
-	// TODO Variables
 	AKibbutzGameMode* const KibbutzGameMode = GetWorld()->GetAuthGameMode<AKibbutzGameMode>();
 
 	if (KibbutzGameMode->NPCStatementsMap.Find(FriendlyName) != nullptr) {
