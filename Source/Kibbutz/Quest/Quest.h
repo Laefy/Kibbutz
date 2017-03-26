@@ -21,6 +21,7 @@ public:
 	virtual void BeginPlay() override;
 
 	// Call this in order to check whether to advance in the quest.
+	UFUNCTION(BlueprintCallable, Category = "Quest")
 	virtual bool CheckAdvancement();
 
 	// Called to check whether the current step has been completed or not.
