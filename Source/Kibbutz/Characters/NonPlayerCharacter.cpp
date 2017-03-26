@@ -26,11 +26,12 @@ void ANonPlayerCharacter::Tick(float DeltaTime) {
 
 void ANonPlayerCharacter::AllocateDialogueToNPC() {
 	// TODO Variables
-	FriendlyName = convertIDNametoName(ANonPlayerCharacter::GetName());
 	AKibbutzGameMode* const KibbutzGameMode = GetWorld()->GetAuthGameMode<AKibbutzGameMode>();
 
 	if (KibbutzGameMode->NPCStatementsMap.Find(FriendlyName) != nullptr) {
 		NPCStatements = *KibbutzGameMode->NPCStatementsMap.Find(FriendlyName);
+	} else {
+		UE_LOG(DebugLog, Warning, TEXT("Unable to find dialogue for character named %s."), &FriendlyName);
 	}
 }
 

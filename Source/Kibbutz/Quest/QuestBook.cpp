@@ -15,4 +15,5 @@ void AQuestBook::BeginPlay() {
 
 void AQuestBook::AddQuest(AQuest* Quest) {
 	Quests.Add(Quest);
+	Quest->AddedToBook();
 }

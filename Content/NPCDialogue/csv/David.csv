@@ -1,0 +1,10 @@
+Id,Day,Variable,"
+Question",Answer1,Answer2,Answer3,A1Goto,A2Goto,A3Goto,QuestName
+1,2,NotFindChild,Hi !,,,,0,0,0,
+2,2,FindChild,...,Hey ! Your mother is worried !,,,3,0,0,
+3,2,,Oh. I see...,You go back home right now !,What were you doing here ?,,7,4,0,
+4,2,,I just wanted to see if I could pick up some mushrooms for dinner.,Ok. Why don't you go back now ?,And have you found some ?,,7,5,0,
+5,2,,"No ! But there were some strange noises, and I think I saw a bear...",A bear ?! Are you sure ?,It's dangerous ! Go home now !,You're kidding me right ?,6,8,7,
+6,2,,"Not really, I didn't see it quite right...","Mmmh, you should probably go back now, your mom is waiting.",,,8,0,0,
+7,2,,"Well, I'm not sure, I didn't see it quite right.","Mmmh, you should probably go back now, your mom is waiting.",,,8,0,0,
+8,2,,Ok. Goodbye !,,,,0,0,0,

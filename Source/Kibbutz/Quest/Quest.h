@@ -20,6 +20,9 @@ public:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	// Called after the quest has been added to the quest book.
+	virtual void AddedToBook();
+
 	// Call this in order to check whether to advance in the quest.
 	virtual bool CheckAdvancement();
 
