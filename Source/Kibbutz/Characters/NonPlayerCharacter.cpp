@@ -3,25 +3,20 @@
 #include "Kibbutz.h"
 #include "KibbutzGameMode.h"
 #include "NonPlayerCharacter.h"
-#include "../Data/RawCsvData.h"
+#include "Data/RawCsvData.h"
 #include "Runtime/AssetRegistry/Public/AssetRegistryModule.h"
 
-
-// Sets default values
 ANonPlayerCharacter::ANonPlayerCharacter() {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+
+	CurrentStatement = 0;
 }
 
-// Called when the game starts or when spawned
 void ANonPlayerCharacter::BeginPlay() {
 	Super::BeginPlay();
 	AllocateDialogueToNPC();
-}
-
-// Called every frame
-void ANonPlayerCharacter::Tick(float DeltaTime) {
-	Super::Tick(DeltaTime);
+	CurrentStatement = 0;
 }
 
 void ANonPlayerCharacter::AllocateDialogueToNPC() {
@@ -31,7 +26,42 @@ void ANonPlayerCharacter::AllocateDialogueToNPC() {
 		NPCStatements = *KibbutzGameMode->NPCStatementsMap.Find(FriendlyName);
 	} else {
 		UE_LOG(DebugLog, Warning, TEXT("Unable to find dialogue for character named %s."), &FriendlyName);
+		NPCStatements.Empty();
 	}
+
+	for (int i = 0; i < NPCStatements.Num(); ++ i) {
+		if (!NPCStatements[i].Variable.IsEmpty()) {
+			Conditions.Emplace(NPCStatements[i].Variable, false);
+		}
+	}
+}
+
+bool ANonPlayerCharacter::HasStatement() {
+	if (GetWorld() == nullptr) {
+		return false;
+	}
+
+	AKibbutzGameMode* GameMode = GetWorld()->GetAuthGameMode<AKibbutzGameMode>();
+	if (GameMode == nullptr) {
+		return nullptr;
+	}
+
+	int Day = GameMode->Clock.days;
+	for (int Next = CurrentStatement; Next < NPCStatements.Num(); ++ Next) {
+		if (NPCStatements[Next].Day == Day) {
+			FString const& Variable = NPCStatements[Next].Variable;
+			if (Variable.IsEmpty() || Conditions[Variable]) {
+				CurrentStatement = Next;
+				return true;
+			}
+		}
+	}
+
+	return false;
+}
+
+void ANonPlayerCharacter::MakeChoice(int Choice) {
+	CurrentStatement = FMath::Max(0, NPCStatements[CurrentStatement].Player_Responses[Choice].Go_To_Statement - 1);
 }
 
 /**

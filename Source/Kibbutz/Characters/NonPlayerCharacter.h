@@ -3,8 +3,8 @@
 #pragma once
 
 #include "GameFramework/Actor.h"
-#include "../Dialogues/NPCStatement.h"
-#include "../Dialogues/PlayerResponse.h"
+#include "Dialogues/NPCStatement.h"
+#include "Dialogues/PlayerResponse.h"
 #include "NonPlayerCharacter.generated.h"
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FGameEventDelegate_OnVariableSet, FString, Variable);
@@ -21,9 +21,6 @@ public:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	// Called every frame
-	virtual void Tick(float DeltaSeconds) override;
-
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Dialogue)
 		TArray<FNPCStatement> NPCStatements;
 
@@ -33,7 +30,26 @@ public:
 	UPROPERTY(BlueprintAssignable, BlueprintCallable, Category = "NPC Event")
 		FGameEventDelegate_OnVariableSet OnVariableSet;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "NPC Event")
+		TMap<FString, bool> Conditions;
+
+	UFUNCTION(BlueprintCallable, Category = Dialogue)
+		bool HasStatement();
+
+	UFUNCTION(BlueprintCallable, Category = Dialogue)
+	FORCEINLINE FNPCStatement GetStatement() const;
+
+protected:
+	UFUNCTION(BlueprintCallable, Category = Dialogue)
+		void MakeChoice(int Choice);
+
 private:
 	void AllocateDialogueToNPC();
 	FString convertIDNametoName(FString IDName);
+
+	int CurrentStatement;
 };
+
+FORCEINLINE FNPCStatement ANonPlayerCharacter::GetStatement() const {
+	return NPCStatements[CurrentStatement];
+}

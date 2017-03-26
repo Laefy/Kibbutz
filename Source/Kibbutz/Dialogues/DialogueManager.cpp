@@ -56,20 +56,14 @@ TArray<FNPCStatement> UDialogueManager::computeDialoguesIntoNPCStatements(const 
 
 			TArray<FPlayerResponse> responses;
 
-			if (data->Answer1.ToString() != "") {
-				FPlayerResponse answer1(data->Answer1, data->A1Goto);
-				responses.Add(answer1);
-			}
+			FPlayerResponse answer1(data->Answer1, data->A1Goto);
+			responses.Add(answer1);
 
-			if (data->Answer2.ToString() != "") {
-				FPlayerResponse answer2(data->Answer2, data->A2Goto);
-				responses.Add(answer2);
-			}
+			FPlayerResponse answer2(data->Answer2, data->A2Goto);
+			responses.Add(answer2);
 
-			if (data->Answer3.ToString() != "") {
-				FPlayerResponse answer3(data->Answer3, data->A3Goto);
-				responses.Add(answer3);
-			}
+			FPlayerResponse answer3(data->Answer3, data->A3Goto);
+			responses.Add(answer3);
 
 			// TODO Would be better to find the reference to quest object right here instead of just passing the name as a string
 			//		but we need access to GetWorld and it's not possible inside GameMode constructor
