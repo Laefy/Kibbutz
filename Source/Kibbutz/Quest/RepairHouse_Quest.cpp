@@ -49,12 +49,17 @@ void ARepairHouse_Quest::BeginPlay() {
 
 }
 
-void checkRepairSteps() {
-
-}
-
 bool ARepairHouse_Quest::CheckStepCompleted(int CurrentStep) {
 	return CompletedSteps[CurrentStep];
+}
+
+void ARepairHouse_Quest::CheckIfBrokenPlanksAreRepaired(bool hasPlankRepaired) {
+	
+	if (CompletedSteps[1] == true && hasPlankRepaired == true) {
+
+		CompletedSteps[2] = true;
+		CheckAdvancement();
+	}
 }
 
 void ARepairHouse_Quest::OnWoodcutterHouseAreaBeginOverlap(AActor* OverlappedActor, AActor* OtherActor) {
@@ -64,7 +69,7 @@ void ARepairHouse_Quest::OnWoodcutterHouseAreaBeginOverlap(AActor* OverlappedAct
 		CheckAdvancement();
 
 	}
-	else if (CompletedSteps[1] == true && Cast<AMainCharacter>(OtherActor) != nullptr) {
+	else if (CompletedSteps[2] == true && Cast<AMainCharacter>(OtherActor) != nullptr) {
 
 		WoodcutterHouseArea->OnActorBeginOverlap.RemoveDynamic(this, &ARepairHouse_Quest::OnWoodcutterHouseAreaBeginOverlap);
 

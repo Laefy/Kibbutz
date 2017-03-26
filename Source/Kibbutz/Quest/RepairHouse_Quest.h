@@ -26,6 +26,9 @@ public:
 	// Overrides Quest::CheckStepCompleted.
 	virtual bool CheckStepCompleted(int CurrentStep);
 
+	UFUNCTION(BlueprintCallable, Category = Game)
+	void CheckIfBrokenPlanksAreRepaired(bool hasPlankRepaired);
+
 protected:
 
 	// The hero house area.
