@@ -36,6 +36,10 @@ public:
 		return Advance;
 	}
 
+	// Check whether the quest is active (adde to quest book ) or not 
+	UFUNCTION(BlueprintCallable, Category = "Quest")
+	virtual bool isActive();
+
 protected:
 	UPROPERTY(BlueprintReadOnly, meta = (AllowPrivateAccess = true))
 	FString Title;
@@ -49,4 +53,5 @@ protected:
 private:
 	int Advance;
 	bool Completed;
+	bool Active;
 };
