@@ -73,7 +73,7 @@ TArray<FNPCStatement> UDialogueManager::computeDialoguesIntoNPCStatements(const 
 
 			// TODO Would be better to find the reference to quest object right here instead of just passing the name as a string
 			//		but we need access to GetWorld and it's not possible inside GameMode constructor
-			FNPCStatement temp(data->Day, data->Question, responses, data->QuestName);
+			FNPCStatement temp(data->Day, data->Question, responses, data->QuestName, data->Variable);
 			NPCStatements.Add(temp);
 		}
 	}
