@@ -25,7 +25,6 @@ void ANonPlayerCharacter::Tick(float DeltaTime) {
 }
 
 void ANonPlayerCharacter::AllocateDialogueToNPC() {
-	// TODO Variables
 	FriendlyName = convertIDNametoName(ANonPlayerCharacter::GetName());
 	AKibbutzGameMode* const KibbutzGameMode = GetWorld()->GetAuthGameMode<AKibbutzGameMode>();
 
