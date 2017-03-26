@@ -1,3 +1,4 @@
+
 Id,Day,Variable,"
 Question",Answer1,Answer2,Answer3,A1Goto,A2Goto,A3Goto,QuestName
 1,1,,"Welcome Oscar, I'm Georges the mayor, I am glad to finally meet you! How was your trip?","Nice to meet you too! Good, thank you.",,,2,0,0,
@@ -5,7 +6,6 @@ Question",Answer1,Answer2,Answer3,A1Goto,A2Goto,A3Goto,QuestName
 3,1,,"Your first mission will help you meet Kibbutz's people.
 We have an old cabin which has been destroyed by the wind last winter. I would like you to fix it. 
 You only need a few pieces of wood, ask Charlie the woodcutter, he is a bit grumpy but always here to help!
-
 ","Looks like this task is the perfect fit for me, let's go!",Where should I find the lumberjack ?,,5,4,0,
 4,1,,"Go to the north of the island, you should find him in the woods.","Ok, thank you.",,,5,0,0,
 5,1,,Come back when you are done.,Yep,,,-6,0,0,RepairHouse_Quest
