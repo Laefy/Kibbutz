@@ -11,6 +11,7 @@ AMainController::AMainController() {
 	QuestMenuClass = QuestMenuBPClass.Class;
 
 	bShowMouseCursor = true;
+	bBlockInputs = false;
 }
 
 void AMainController::PostInitializeComponents() {
@@ -32,7 +33,7 @@ void AMainController::BeginPlay() {
 }
 
 void AMainController::Tick(float DeltaSeconds) {
-	if (bMovingTo) {
+	if (!bBlockInputs && bMovingTo) {
 		FHitResult hit;
 		if (GetHitResultUnderCursorByChannel(UEngineTypes::ConvertToTraceType(ECC_Pointer), false, hit)) {
 			Cast<AMainCharacter>(GetPawn())->MoveTo(hit.Location);
@@ -90,4 +91,8 @@ void AMainController::TriggerQuestMenu() {
 	} else if (!QuestBook->IsEmpty()) {
 		QuestMenu->AddToViewport();
 	}
+}
+
+void AMainController::BlockInputs(bool bBlock) {
+	bBlockInputs = bBlock;
 }

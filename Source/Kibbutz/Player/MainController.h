@@ -48,6 +48,10 @@ public:
 	// Add a new quest for the player.
 	UFUNCTION(BlueprintCallable, Category = "Quest")
 	void AddQuest(AQuest* Quest);
+
+	// Whether to block inputs or not.
+	UFUNCTION(BlueprintCallable, Category = "Controller")
+	void BlockInputs(bool bBlock);
 	
 protected:
 	// Override APlayerController::SetupInputComponent.
@@ -65,4 +69,7 @@ private:
 
 	// Open or close the quest menu.
 	void TriggerQuestMenu();
+
+	// Whether the controller is enabled.
+	bool bBlockInputs;
 };

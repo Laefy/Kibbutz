@@ -8,43 +8,36 @@
 
 
 // Sets default values
-ANonPlayerCharacter::ANonPlayerCharacter()
-{
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+ANonPlayerCharacter::ANonPlayerCharacter() {
+	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 }
 
 // Called when the game starts or when spawned
-void ANonPlayerCharacter::BeginPlay()
-{
+void ANonPlayerCharacter::BeginPlay() {
 	Super::BeginPlay();
 	AllocateDialogueToNPC();
 }
 
 // Called every frame
-void ANonPlayerCharacter::Tick( float DeltaTime )
-{
-	Super::Tick( DeltaTime );
+void ANonPlayerCharacter::Tick(float DeltaTime) {
+	Super::Tick(DeltaTime);
 }
 
-void ANonPlayerCharacter::AllocateDialogueToNPC()
-{
+void ANonPlayerCharacter::AllocateDialogueToNPC() {
 	// TODO Variables
 	FriendlyName = convertIDNametoName(ANonPlayerCharacter::GetName());
 	AKibbutzGameMode* const KibbutzGameMode = GetWorld()->GetAuthGameMode<AKibbutzGameMode>();
-	
+
 	if (KibbutzGameMode->NPCStatementsMap.Find(FriendlyName) != nullptr) {
 		NPCStatements = *KibbutzGameMode->NPCStatementsMap.Find(FriendlyName);
 	}
-
-	
 }
 
 /**
 *	Convert Unreal ID Name to the real name of the character, e.g Chelsea_50 --> Chelsea
 **/
-FString ANonPlayerCharacter::convertIDNametoName(FString IDName)
-{
+FString ANonPlayerCharacter::convertIDNametoName(FString IDName) {
 	int32 underscoreIndex;
 	FString name = IDName;
 	name.FindChar(*("_"), underscoreIndex);
