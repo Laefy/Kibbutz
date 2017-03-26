@@ -27,13 +27,20 @@ public:
 	virtual bool CheckStepCompleted(int CurrentStep);
 
 protected:
-	// The house area.
+	// The hero house area.
 	UPROPERTY(EditAnywhere, Category="Repair House Quest", meta=(AllowPrivateAccess))
-	AActor* HouseArea;
+	AActor* HeroHouseArea;
+
+	// The woodcutter house area.
+	UPROPERTY(EditAnywhere, Category = "Repair House Quest", meta = (AllowPrivateAccess))
+	AActor* WoodcutterHouseArea;
 
 private:
 	TArray<bool> CompletedSteps;
 
 	UFUNCTION()
-	void OnHouseAreaBeginOverlap(AActor* OverlappedActor, AActor* OtherActor);
+	void OnWoodcutterHouseAreaBeginOverlap(AActor* OverlappedActor, AActor* OtherActor);
+
+	UFUNCTION()
+	void OnHeroHouseAreaBeginOverlap(AActor* OverlappedActor, AActor* OtherActor);
 };
