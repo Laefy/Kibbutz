@@ -59,7 +59,7 @@ void AMainCharacter::Tick(float DeltaTime) {
 void AMainCharacter::MoveTo(FVector const& Destination) {
 	// Movement direction.
 	FVector Direction = (Destination - GetActorLocation()).GetSafeNormal();
-	AddMovementInput(Direction, 10);
+	AddMovementInput(Direction, 5);
 
 	// Set the new orientation.
 	FRotator NewOrientation = Direction.Rotation();
