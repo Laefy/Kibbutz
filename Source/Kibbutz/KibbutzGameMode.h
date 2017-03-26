@@ -42,5 +42,7 @@ public:
 	bool IsTimeBlocked() const;
 
 private:
+	void UpdateClock();
+
 	ATimeManager* DayNightManager;
 };
