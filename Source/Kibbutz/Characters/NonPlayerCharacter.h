@@ -7,6 +7,9 @@
 #include "../Dialogues/PlayerResponse.h"
 #include "NonPlayerCharacter.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FGameEventDelegate_OnVariableSet, FString, Variable);
+
+
 UCLASS()
 class KIBBUTZ_API ANonPlayerCharacter: public ACharacter {
 	GENERATED_BODY()
@@ -26,6 +29,10 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Dialogue)
 		FString FriendlyName;
+
+	UPROPERTY(BlueprintAssignable, BlueprintCallable, Category = "NPC Event")
+		FGameEventDelegate_OnVariableSet OnVariableSet;
+
 private:
 	void AllocateDialogueToNPC();
 	FString convertIDNametoName(FString IDName);

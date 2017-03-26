@@ -19,6 +19,9 @@ void AQuest::BeginPlay() {
 	//Cast<AMainController>(GetWorld()->GetFirstPlayerController())->AddQuest(this);
 }
 
+void AQuest::AddedToBook() {
+}
+
 bool AQuest::CheckAdvancement() {
 	while (Advance < Steps.Num() && CheckStepCompleted(Advance)) {
 		++ Advance;
