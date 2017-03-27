@@ -4,9 +4,7 @@ Question",Answer1,Answer2,Answer3,A1Goto,A2Goto,A3Goto,QuestName
 2,1,,Great! Did you have time to visit our village yet?,Not yet,,,3,0,0,
 3,1,,"Your first mission will help you meet Kibbutz's people.
 We have an old cabin which has been destroyed by the wind last winter. I would like you to fix it. 
-You only need a few pieces of wood, ask Charlie the woodcutter, he is a bit grumpy but always here to help!
-
-FIXME Comment on a la hache ??? Voir le bucheron et on l'obtient avec son aide ? Le maire nous la donne ? ","Looks like this task is the perfect fit for me, let's go!",Where should I find the lumberjack ?,,5,4,0,
+You only need a few pieces of wood. Try to cut trees to get some.","Looks like this task is the perfect fit for me, let's go!",Where should I find the lumberjack ?,,5,4,0,
 4,1,,"Go to the north of the island, you should find him in the woods.","Ok, thank you.",,,5,0,0,
 5,1,,Come back when you are done.,,,,0,0,0,RepairHouse_Quest
 6,1,RepairHouse_Quest,"Glad to see you back Oscar, could you do me a favor ?","Yes, sure.","No, sorry, I need some time to rest, the trip was exhausting.",,7,8,0,
