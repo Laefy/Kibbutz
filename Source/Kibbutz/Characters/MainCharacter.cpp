@@ -12,7 +12,7 @@ AMainCharacter::AMainCharacter() {
 	SpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
 	SpringArm->SetupAttachment(RootComponent);
 	SpringArm->RelativeRotation = FRotator(-30.f, 0.f, 0.f);
-	SpringArm->TargetArmLength = 500.f;
+	SpringArm->TargetArmLength = 800.f;
 	SpringArm->bEnableCameraLag = true;
 	SpringArm->CameraLagSpeed = 1.3f;
 	SpringArm->bUsePawnControlRotation = false;

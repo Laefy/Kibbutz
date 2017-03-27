@@ -44,7 +44,7 @@ private:
 };
 
 FORCEINLINE void ATimeManager::SetTime(FClockStruct const& Time) {
-	Tick(Time - Clock);
+	Tick((Time - Clock) / 5.f);
 }
 
 FORCEINLINE FClockStruct ATimeManager::GetTime() const {

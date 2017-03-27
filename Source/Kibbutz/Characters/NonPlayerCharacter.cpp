@@ -53,6 +53,9 @@ bool ANonPlayerCharacter::HasStatement() {
 			if (Variable.IsEmpty() || Conditions[Variable]) {
 				CurrentStatement = Next;
 				return true;
+
+			} else {
+				//return false;
 			}
 		}
 	}
@@ -78,4 +81,17 @@ FString ANonPlayerCharacter::convertIDNametoName(FString IDName) {
 	}
 
 	return name;
+}
+
+void ANonPlayerCharacter::SetCondition(FString Condition, bool State) {
+	if (!Conditions.Contains(Condition)) {
+		UE_LOG(DebugLog, Warning, TEXT("Unknown condition %s."), &Condition);
+		return;
+	}
+
+	Conditions[Condition] = State;
+}
+
+void ANonPlayerCharacter::SkipStatement() {
+	++ CurrentStatement;
 }

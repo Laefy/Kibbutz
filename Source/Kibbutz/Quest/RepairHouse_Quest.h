@@ -21,7 +21,7 @@ public:
 	ARepairHouse_Quest();
 
 	// Called when the game starts or when spawned.
-	virtual void BeginPlay() override;
+	virtual void AddedToBook() override;
 
 	// Overrides Quest::CheckStepCompleted.
 	virtual bool CheckStepCompleted(int CurrentStep);
@@ -32,11 +32,11 @@ public:
 protected:
 
 	// The hero house area.
-	UPROPERTY(EditAnywhere, Category="Repair House Quest", meta=(AllowPrivateAccess))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Repair House Quest", meta=(AllowPrivateAccess))
 	AActor* HeroHouseArea;
 
 	// The woodcutter house area.
-	UPROPERTY(EditAnywhere, Category = "Repair House Quest", meta = (AllowPrivateAccess))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Repair House Quest", meta = (AllowPrivateAccess))
 	AActor* WoodcutterHouseArea;
 
 private:

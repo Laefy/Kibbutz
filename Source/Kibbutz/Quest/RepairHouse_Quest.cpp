@@ -9,14 +9,14 @@
 ARepairHouse_Quest::ARepairHouse_Quest() {
 	Title = "Repair House";
 	Description = "You just arrived in town, and you already got work to do ! "
-				  "A villager's house has been vandalised, and there is a hole in his wall."
-				  "You need to fix it.";
+		"A villager's house has been vandalised, and there is a hole in his wall."
+		"You need to fix it.";
 
-	Steps.Add("- Go to Carlos's house and look for the hole.");
+	Steps.Add("- Go to Carlos's house.");
 	CompletedSteps.Add(false);
 
-	//Steps.Add("- Find the hole.");
-	//CompletedSteps.Add(false);
+	Steps.Add("- Find the hole.");
+	CompletedSteps.Add(false);
 
 	Steps.Add("- Seek the toolbox you forgot home.");
 	CompletedSteps.Add(false);
@@ -29,9 +29,7 @@ ARepairHouse_Quest::ARepairHouse_Quest() {
 
 }
 
-void ARepairHouse_Quest::BeginPlay() {
-	Super::BeginPlay();
-
+void ARepairHouse_Quest::AddedToBook() {
 	if (HeroHouseArea != nullptr) {
 		HeroHouseArea->OnActorBeginOverlap.AddDynamic(this, &ARepairHouse_Quest::OnHeroHouseAreaBeginOverlap);
 	} else {
@@ -40,19 +38,17 @@ void ARepairHouse_Quest::BeginPlay() {
 
 	if (WoodcutterHouseArea != nullptr) {
 		WoodcutterHouseArea->OnActorBeginOverlap.AddDynamic(this, &ARepairHouse_Quest::OnWoodcutterHouseAreaBeginOverlap);
-	}
-	else {
+	} else {
 		UE_LOG(DebugLog, Error, TEXT("WoodcutterHouseArea was not specified for RepairHouse_Quest."));
 	}
-
 }
 
 bool ARepairHouse_Quest::CheckStepCompleted(int CurrentStep) {
-	return CompletedSteps[CurrentStep];
+	return CurrentStep >= CompletedSteps.Num() || CompletedSteps[CurrentStep];
 }
 
 void ARepairHouse_Quest::CheckIfBrokenPlanksAreRepaired(bool hasPlankRepaired) {
-	
+
 	//UE_LOG(DebugLog, Error, TEXT("Function called"));
 
 
@@ -67,33 +63,28 @@ void ARepairHouse_Quest::CheckIfBrokenPlanksAreRepaired(bool hasPlankRepaired) {
 }
 
 void ARepairHouse_Quest::OnWoodcutterHouseAreaBeginOverlap(AActor* OverlappedActor, AActor* OtherActor) {
-	if (CompletedSteps[0] == false && Cast<AMainCharacter>(OtherActor) != nullptr) {
+	if (Cast<AMainCharacter>(OtherActor) == nullptr) {
+		return;
+	}
+
+	if (CompletedSteps[0] == false) {
 
 		CompletedSteps[0] = true;
-		CheckAdvancement();
-
-	}
-	else if (CompletedSteps[1] == true && Cast<AMainCharacter>(OtherActor) != nullptr) {
-
-		WoodcutterHouseArea->OnActorBeginOverlap.RemoveDynamic(this, &ARepairHouse_Quest::OnWoodcutterHouseAreaBeginOverlap);
-
-		TArray<UStaticMeshComponent*> Components;
-		WoodcutterHouseArea->GetComponents<UStaticMeshComponent>(Components);
-		for (int32 i = 1; i<Components.Num(); i++)
-		{
-			Components[i]->UnregisterComponent();
-		}
-
 		CompletedSteps[1] = true;
 		CheckAdvancement();
 
+	} else if (CompletedSteps[2] == true) {
+		WoodcutterHouseArea->OnActorBeginOverlap.RemoveDynamic(this, &ARepairHouse_Quest::OnWoodcutterHouseAreaBeginOverlap);
+
+		CompletedSteps[3] = true;
+		CheckAdvancement();
 	}
 }
 
 void ARepairHouse_Quest::OnHeroHouseAreaBeginOverlap(AActor* OverlappedActor, AActor* OtherActor) {
-	if (CompletedSteps[0] == true && Cast<AMainCharacter>(OtherActor) != nullptr) {
+	if (CompletedSteps[1] == true && Cast<AMainCharacter>(OtherActor) != nullptr) {
 		HeroHouseArea->OnActorBeginOverlap.RemoveDynamic(this, &ARepairHouse_Quest::OnHeroHouseAreaBeginOverlap);
-		CompletedSteps[1] = true;
+		CompletedSteps[2] = true;
 		CheckAdvancement();
 	}
 }

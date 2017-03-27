@@ -33,6 +33,10 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "NPC Event")
 		TMap<FString, bool> Conditions;
 
+
+	UFUNCTION(BlueprintCallable, Category = Dialogue)
+	void SetCondition(FString Condition, bool State);
+
 	UFUNCTION(BlueprintCallable, Category = Dialogue)
 		bool HasStatement();
 
@@ -42,6 +46,9 @@ public:
 protected:
 	UFUNCTION(BlueprintCallable, Category = Dialogue)
 		void MakeChoice(int Choice);
+
+	UFUNCTION(BlueprintCallable, Category = Dialogue)
+		void SkipStatement();
 
 private:
 	void AllocateDialogueToNPC();

@@ -47,7 +47,7 @@ void ATimeManager::Tick(float DeltaTime) {
 		return;
 	}
 
-	DeltaSeconds += DeltaTime;
+	DeltaSeconds += 5.f * DeltaTime;
 	Clock += DeltaSeconds;
 
 	DeltaSeconds = FMath::Fmod(DeltaSeconds, 1.f);

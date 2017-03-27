@@ -34,7 +34,7 @@ void AFindChild_Quest::AddedToBook() {
 }
 
 bool AFindChild_Quest::CheckStepCompleted(int CurrentStep) {
-	return CompletedSteps[CurrentStep];
+	return CurrentStep >= CompletedSteps.Num() || CompletedSteps[CurrentStep];
 }
 
 void AFindChild_Quest::OnWoodsReached(AActor* OverlappedActor, AActor* OtherActor) {
